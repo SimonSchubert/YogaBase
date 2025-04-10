@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoga Poses Explorer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        #filter {
+            text-align: center;
+            margin: 20px 0;
+        }
+        #filter label {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        #filter select, #filter input {
+            padding: 5px;
+            font-size: 1em;
+            margin-right: 10px;
+        }
+        #categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+            margin: 0 20px;
+        }
+        .category-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .category-card h3 {
+            margin: 0 0 10px 0;
+            color: #4CAF50;
+            font-size: 1.4em;
+            text-align: center;
+        }
+        .category-description {
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.4;
+            flex-grow: 1;
+            max-height: 80px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        .category-poses-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .category-pose-thumbnail {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        .category-stats {
+            font-size: 0.8em;
+            color: #888;
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .start-session-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+            align-self: center;
+        }
+        .start-session-btn:hover {
+            background-color: #3d8b40;
+        }
+        #poses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .pose-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .pose-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .pose-card h2 {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+        .pose-card p {
+            margin: 10px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin: 20px 0 10px;
+            color: #333;
+        }
+        #exercise-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 20px;
+            padding: 20px;
+        }
+        #difficulty-selector {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .difficulty-btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.2s;
+        }
+        .difficulty-btn:hover {
+            background-color: #d0d0d0;
+        }
+        .difficulty-btn.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .timer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .timer {
+            font-size: 3em;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .current-pose {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .current-pose img {
+            width: 300px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .control-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .control-btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .control-btn:hover {
+            background-color: #3d8b40;
+        }
+        .back-btn {
+            background-color: #f44336;
+        }
+        .back-btn:hover {
+            background-color: #d32f2f;
+        }
+        .progress-bar {
+            width: 80%;
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        .all-poses-preview {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .mini-pose {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            object-fit: contain;
+            border: 2px solid #e0e0e0;
+        }
+
+        .mini-pose.active {
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        #exercise-stats {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .voice-icon {
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+
+        .voice-toggle-btn {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            padding: 10px;
+            color: #4CAF50;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            transition: background-color 0.2s;
+        }
+
+        .voice-toggle-btn:hover {
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+
+        .voice-toggle-btn:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+
+        <h2 class="section-title">Start Session</h2>
+        <div id="categories-container">
+            <!-- Category cards will be inserted here via JS -->
+        </div>
+        
+        <div id="exercise-container">
+            <h2 id="exercise-title"></h2>
+            <p id="exercise-description"></p>
+            
+            <div id="difficulty-selector">
+                <button class="difficulty-btn" data-level="beginner">Beginner</button>
+                <button class="difficulty-btn" data-level="intermediate">Intermediate</button>
+                <button class="difficulty-btn" data-level="advanced">Advanced</button>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+            
+            <div id="exercise-stats"></div>
+            <div class="all-poses-preview" id="all-poses-preview">
+                <!-- Mini images will be inserted here -->
+            </div>
+            
+            <div class="current-pose">
+                <img id="current-pose-img" src="" alt="Current pose">
+                <h3 id="current-pose-name"></h3>
+                <p id="current-pose-sanskrit"></p>
+            </div>
+            
+            <div class="timer-container">
+                <div class="timer" id="timer">00:00</div>
+                <p id="timer-label">Get ready...</p>
+            </div>
+            
+            <div class="control-buttons">
+                <button id="start-btn" class="control-btn">Start Exercise</button>
+                <button id="pause-btn" class="control-btn">Pause</button>
+                <button id="back-btn" class="control-btn back-btn">Back</button>
+                <button id="voice-toggle-btn" class="voice-toggle-btn">🔊</button>
+            </div>
+        </div>
+        
+        <h2 class="section-title">All Poses</h2>
+        <div id="poses-container">
+            <!-- Pose cards will be inserted here via JS -->
+        </div>
+    </main>
+    <script>
+        let allPoses = [];
+        let allCategories = [];
+        let currentExercise = null;
+        let currentPoseIndex = 0;
+        let selectedDifficulty = 'beginner';
+        let timerInterval = null;
+        let timeRemaining = 0;
+        let exerciseStarted = false;
+        let exercisePaused = false;
+        let voiceEnabled = true; // Default voice to on
+
+        // Pose durations in seconds for each difficulty
+        const poseDurations = {
+            beginner: 20,
+            intermediate: 30,
+            advanced: 45
+        };
+
+        // Fetch all poses when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fetch poses
+            Promise.all([
+                fetch('https://yoga-api-nzy4.onrender.com/v1/poses').then(response => response.json()),
+                fetch('https://yoga-api-nzy4.onrender.com/v1/categories').then(response => response.json())
+            ])
+            .then(([posesData, categoriesData]) => {
+                allPoses = posesData;
+                allCategories = categoriesData;
+                
+                // Now we can safely display both with all data available
+                displayPoses(allPoses);
+                displayCategories(allCategories);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    
+
+            
+            // Add event listeners for exercise controls
+            document.getElementById('start-btn').addEventListener('click', startExercise);
+            document.getElementById('pause-btn').addEventListener('click', togglePause);
+            document.getElementById('back-btn').addEventListener('click', closeExercise);
+            
+            // Add event listeners for difficulty buttons
+            const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+            difficultyBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    selectedDifficulty = this.dataset.level;
+                    difficultyBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    // Update exercise stats when difficulty changes
+                    if (currentExercise) {
+                        const poseCount = document.querySelectorAll('.mini-pose').length;
+                        updateExerciseStats(poseCount);
+                    }
+                });
+            });
+            
+            // Set default difficulty
+            document.querySelector('[data-level="beginner"]').classList.add('selected');
+
+            // Update the event listener in the DOMContentLoaded section
+            // Replace the existing voice toggle event listener with this
+            document.getElementById('voice-toggle-btn').addEventListener('click', function() {
+                voiceEnabled = !voiceEnabled;
+                
+                // Update the icon
+                this.textContent = voiceEnabled ? '🔊' : '🔇';
+                
+                // If toggled off while speaking, stop current speech
+                if (!voiceEnabled) {
+                    speechSynthesis.cancel();
+                }
+            });
+        });
+
+        // Display categories in the container
+        function displayCategories(categories) {
+            const categoriesContainer = document.getElementById('categories-container');
+            categoriesContainer.innerHTML = ''; // Clear existing categories
+
+            categories.forEach(category => {
+                const categoryCard = document.createElement('div');
+                categoryCard.classList.add('category-card');
+                
+                // Create category header and description
+                const title = document.createElement('h3');
+                title.textContent = category.category_name;
+                
+                const description = document.createElement('div');
+                description.classList.add('category-description');
+                description.textContent = category.category_description || 'No description available';
+                
+                // Create poses preview section
+                const posesPreview = document.createElement('div');
+                posesPreview.classList.add('category-poses-preview');
+                
+                // Find the poses that belong to this category
+                const categoryPoses = [];
+                category.poses.forEach(pose => {
+                    const fullPose = allPoses.find(p => p.id === pose.id);
+                    if (fullPose) {
+                        categoryPoses.push(fullPose);
+                    }
+                });
+                
+                // Add up to 5 pose thumbnails
+                const maxThumbnails = Math.min(5, categoryPoses.length);
+                for (let i = 0; i < maxThumbnails; i++) {
+                    const pose = categoryPoses[i];
+                    if (pose && pose.url_svg) {
+                        const thumbnail = document.createElement('img');
+                        thumbnail.src = pose.url_svg;
+                        thumbnail.alt = pose.english_name;
+                        thumbnail.classList.add('category-pose-thumbnail');
+                        posesPreview.appendChild(thumbnail);
+                    }
+                }
+                
+                // Add category stats
+                const stats = document.createElement('div');
+                stats.classList.add('category-stats');
+                stats.textContent = `${categoryPoses.length} poses`;
+                
+                // Add start button
+                const startButton = document.createElement('button');
+                startButton.classList.add('start-session-btn');
+                startButton.textContent = 'Start Session';
+                
+                // Assemble card
+                categoryCard.appendChild(title);
+                categoryCard.appendChild(description);
+                categoryCard.appendChild(posesPreview);
+                categoryCard.appendChild(stats);
+                categoryCard.appendChild(startButton);
+                
+                // Add click event to start exercise with this category
+                startButton.addEventListener('click', () => {
+                    openExercise(category);
+                });
+                
+                // Add to container
+                categoriesContainer.appendChild(categoryCard);
+            });
+        }
+
+        // Open exercise flow for a specific category
+        function openExercise(category) {
+            currentExercise = category;
+            
+            // Update exercise information
+            document.getElementById('exercise-title').textContent = category.category_name;
+            document.getElementById('exercise-description').textContent = category.category_description;
+            
+            // Show exercise container and hide poses container
+            document.getElementById('exercise-container').style.display = 'flex';
+            
+            // Reset exercise state
+            currentPoseIndex = 0;
+            exerciseStarted = false;
+            exercisePaused = false;
+            document.getElementById('start-btn').textContent = 'Start Exercise';
+            document.getElementById('start-btn').style.display = 'block';
+            document.getElementById('pause-btn').style.display = 'none';
+            document.getElementById('difficulty-selector').style.display = 'block';
+            clearInterval(timerInterval);
+            
+            // Reset timer display
+            document.getElementById('timer').textContent = '00:00';
+            document.getElementById('timer-label').textContent = 'Get ready...';
+            
+            // Reset progress bar
+            document.getElementById('progress-bar').style.width = '0%';
+            
+            // Scroll to exercise container
+            document.getElementById('exercise-container').scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            const categoryPoses = [];
+            currentExercise.poses.forEach(pose => {
+                const fullPose = allPoses.find(p => p.id === pose.id);
+                if (fullPose) {
+                    categoryPoses.push(fullPose);
+                }
+            });
+            
+            // Display all poses in small preview
+            const allPosesPreview = document.getElementById('all-poses-preview');
+            allPosesPreview.innerHTML = '';
+            
+            categoryPoses.forEach((pose, index) => {
+                const miniImg = document.createElement('img');
+                miniImg.src = pose.url_svg;
+                miniImg.alt = pose.english_name;
+                miniImg.classList.add('mini-pose');
+                if (index === 0) miniImg.classList.add('active');
+                allPosesPreview.appendChild(miniImg);
+            });
+            
+            // Update exercise stats
+            updateExerciseStats(categoryPoses.length);
+            
+            const currentPose = categoryPoses[0];
+            document.getElementById('current-pose-img').src = currentPose.url_svg;
+            document.getElementById('current-pose-name').textContent = currentPose.english_name;
+            document.getElementById('current-pose-sanskrit').textContent = currentPose.sanskrit_name;
+
+            // Ensure voice toggle shows correct state
+            document.getElementById('voice-toggle-btn').textContent = voiceEnabled ? '🔊' : '🔇';
+        }
+
+        // Add a new function to update exercise stats
+        function updateExerciseStats(poseCount) {
+            const totalDuration = poseCount * poseDurations[selectedDifficulty];
+            const minutes = Math.floor(totalDuration / 60);
+            const seconds = totalDuration % 60;
+            
+            document.getElementById('exercise-stats').textContent = 
+                `Total: ${poseCount} poses • ${minutes}m ${seconds}s • ${selectedDifficulty} level`;
+        }
+
+        // Close exercise flow and return to main view
+        function closeExercise() {
+            document.getElementById('exercise-container').style.display = 'none';
+            clearInterval(timerInterval);
+            exerciseStarted = false;
+        }
+
+        // Start the exercise flow with selected difficulty
+        function startExercise() {
+            if (exerciseStarted) {
+                return;
+            }
+            
+            exerciseStarted = true;
+            exercisePaused = false;
+            
+            // Hide start button and show pause button
+            document.getElementById('start-btn').style.display = 'none';
+            document.getElementById('difficulty-selector').style.display = 'none';
+            document.getElementById('pause-btn').style.display = 'inline-block';
+            
+            // Get poses for this category
+            const categoryPoses = [];
+            currentExercise.poses.forEach(pose => {
+                const fullPose = allPoses.find(p => p.id === pose.id);
+                if (fullPose) {
+                    categoryPoses.push(fullPose);
+                }
+            });
+            
+            // Start with the first pose
+            currentPoseIndex = 0;
+            startPoseTimer(categoryPoses);
+        }
+
+        // Start timer for current pose
+        function startPoseTimer(poses) {
+            if (currentPoseIndex >= poses.length) {
+                // Exercise completed
+                finishExercise();
+                return;
+            }
+            
+            const currentPose = poses[currentPoseIndex];
+            
+            // Update current pose display
+            document.getElementById('current-pose-img').src = currentPose.url_svg;
+            document.getElementById('current-pose-name').textContent = currentPose.english_name;
+            document.getElementById('current-pose-sanskrit').textContent = currentPose.sanskrit_name;
+            
+            // Update active mini pose
+            const miniPoses = document.querySelectorAll('.mini-pose');
+            miniPoses.forEach((pose, index) => {
+                if (index === currentPoseIndex) {
+                    pose.classList.add('active');
+                } else {
+                    pose.classList.remove('active');
+                }
+            });
+            
+            // Read pose description using text-to-speech only if voice is enabled
+            if (voiceEnabled && currentPose.pose_description) {
+                const utterance = new SpeechSynthesisUtterance(currentPose.pose_description.substring(0, 100)+"...");
+                speechSynthesis.cancel(); // Cancel any ongoing speech
+                speechSynthesis.speak(utterance);
+            }
+            
+            // Set timer duration based on difficulty
+            timeRemaining = poseDurations[selectedDifficulty];
+            updateTimerDisplay();
+            
+            // Update progress bar
+            const progressPercent = (currentPoseIndex / poses.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+            
+            // Start countdown
+            timerInterval = setInterval(() => {
+                if (exercisePaused) return;
+                
+                timeRemaining--;
+                updateTimerDisplay();
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    currentPoseIndex++;
+                    setTimeout(() => startPoseTimer(poses), 1000);
+                }
+            }, 1000);
+        }
+
+        // Update timer display
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeRemaining <= 5) {
+                document.getElementById('timer-label').textContent = 'Get ready for next pose...';
+            } else {
+                document.getElementById('timer-label').textContent = 'Hold pose';
+            }
+        }
+
+        // Toggle pause/resume exercise
+        function togglePause() {
+            exercisePaused = !exercisePaused;
+            document.getElementById('pause-btn').textContent = exercisePaused ? 'Resume' : 'Pause';
+        }
+
+        // Finish the exercise
+        function finishExercise() {
+            document.getElementById('current-pose-img').src = '';
+            document.getElementById('current-pose-name').textContent = 'Exercise Completed!';
+            document.getElementById('current-pose-sanskrit').textContent = 'Great job!';
+            document.getElementById('timer').textContent = '00:00';
+            document.getElementById('timer-label').textContent = 'Completed';
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('pause-btn').style.display = 'none';
+            document.getElementById('start-btn').style.display = 'inline-block';
+            document.getElementById('start-btn').textContent = 'Restart Exercise';
+            exerciseStarted = false;
+        }
+
+        // Filter poses based on search term
+        function filterPoses() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+
+            const filteredPoses = allPoses.filter(pose => {
+                const matchesSearch = pose.english_name.toLowerCase().includes(searchTerm) || 
+                                     pose.sanskrit_name.toLowerCase().includes(searchTerm);
+                return matchesSearch;
+            });
+
+            displayPoses(filteredPoses);
+        }
+
+        // Display poses in the container
+        function displayPoses(poses) {
+            const posesContainer = document.getElementById('poses-container');
+            posesContainer.innerHTML = ''; // Clear existing poses
+
+            poses.forEach(pose => {
+                const poseCard = document.createElement('div');
+                poseCard.classList.add('pose-card');
+                poseCard.innerHTML = `
+                    <img src="${pose.url_svg}" alt="${pose.english_name}">
+                    <h2>${pose.english_name}</h2>
+                    <p><em>${pose.sanskrit_name}</em></p>
+                    <p><strong>Benefits:</strong> ${pose.pose_benefits}</p>
+                `;
+                posesContainer.appendChild(poseCard);
+            });
+        }
+    </script>
+</body>
+</html>
