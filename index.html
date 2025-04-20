@@ -327,7 +327,17 @@
             document.getElementById('current-pose-img').src = currentPose.url_svg;
             document.getElementById('current-pose-name').textContent = currentPose.english_name;
             document.querySelector('.current-pose').style.display = 'none';
+            
+            // Add state to browser history for back button support
+            history.pushState({action: 'openExercise'}, document.title);
         }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (event) => {
+            if (document.getElementById('session-fullscreen').style.display === 'flex') {
+                closeExercise();
+            }
+        });
 
         // Start the exercise flow with selected difficulty
         function startExercise() {
