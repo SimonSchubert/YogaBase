@@ -145,25 +145,26 @@ header {
 }
 #difficulty-selector {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: center;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 .difficulty-btn {
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #e0e0e0;
-    border: none;
-    border-radius: 5px;
+    padding: 8px 16px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 1em;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 .difficulty-btn:hover {
     background-color: #d0d0d0;
 }
 .difficulty-btn.selected {
-    background-color: #4CAF50;
+    background: #4CAF50;
     color: white;
+    border-color: #4CAF50;
 }
 .timer-container {
     display: flex;
@@ -181,6 +182,7 @@ header {
     flex-direction: column;
     align-items: center;
     margin: 20px 0;
+    margin-top: auto;
 }
 .current-pose img {
     width: 300px;
@@ -191,8 +193,9 @@ header {
 }
 .control-buttons {
     display: flex;
-    justify-content: center;
-    margin: 20px 0;
+    gap: 10px;
+    margin: 10px 0;
+    margin-bottom: auto;
 }
 .control-btn {
     padding: 10px 20px;
@@ -214,45 +217,44 @@ header {
     background-color: #d32f2f;
 }
 .progress-bar {
-    width: 80%;
+    width: 100%;
     height: 10px;
-    background-color: #e0e0e0;
+    background-color: #f0f0f0;
     border-radius: 5px;
-    margin: 20px 0;
     overflow: hidden;
+    margin: 10px 0;
 }
 .progress {
     height: 100%;
     background-color: #4CAF50;
-    width: 0%;
-    transition: width 0.3s;
+    width: 0;
+    transition: width 0.5s;
 }
 .all-poses-preview {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin: 20px 0;
+    width: 100%;
+    margin: 10px 0;
 }
 
 .mini-pose {
-    width: 60px;
-    height: 60px;
-    border-radius: 5px;
+    height: 50px;
+    width: auto;
     object-fit: contain;
-    border: 2px solid #e0e0e0;
+    opacity: 0.6;
+    transition: opacity 0.3s;
 }
 
 .mini-pose.active {
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    opacity: 1;
+    border-bottom: 3px solid #4CAF50;
 }
 
 #exercise-stats {
     text-align: center;
-    margin: 10px 0;
-    font-size: 0.9em;
-    color: #666;
+    font-weight: 500;
 }
 
 .voice-icon {
@@ -273,7 +275,7 @@ header {
     border-radius: 50%;
     width: 44px;
     height: 44px;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .voice-toggle-btn:hover {
@@ -282,6 +284,19 @@ header {
 
 .voice-toggle-btn:focus {
     outline: none;
+}
+
+.voice-toggle-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.voice-toggle-btn:hover svg {
+    transform: scale(1.1);
+}
+
+.voice-toggle-btn .sound-on, 
+.voice-toggle-btn .sound-off {
+    stroke: #4CAF50;
 }
 
 /* Add to your existing styles.css file */
@@ -309,4 +324,100 @@ header {
 .difficulty-advanced {
   background-color: #F44336; /* Red */
   color: white;
+}
+
+/* Full-screen session UI styles */
+.session-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.session-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.session-back-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.session-back-btn:hover {
+    color: #4CAF50;
+}
+
+.session-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 15px;
+}
+
+.session-fullscreen .current-pose {
+    margin: 10px 0;
+    margin-top: auto;
+    text-align: center;
+    width: 100%;
+    display: none; /* Hide initially, will be shown on start */
+}
+
+.session-fullscreen .current-pose img {
+    max-height: 30vh;
+    width: auto;
+    max-width: 100%;
+}
+
+.session-fullscreen .timer-container {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.session-fullscreen .timer {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+/* Media queries for better responsiveness */
+@media (max-width: 600px) {
+    .session-content {
+        padding: 10px 5px;
+    }
+    
+    .session-fullscreen .current-pose img {
+        max-height: 25vh;
+    }
+    
+    .session-fullscreen .timer {
+        font-size: 2rem;
+    }
+    
+    #exercise-title {
+        font-size: 1.5rem;
+    }
+    
+    .mini-pose {
+        height: 40px;
+    }
 }
