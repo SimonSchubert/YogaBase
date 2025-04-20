@@ -447,7 +447,14 @@
             const posesContainer = document.getElementById('poses-container');
             posesContainer.innerHTML = ''; // Clear existing poses
 
-            poses.forEach(pose => {
+            // Sort poses by difficulty level (beginner -> intermediate -> advanced)
+            const difficultyOrder = { 'beginner': 1, 'intermediate': 2, 'advanced': 3 };
+            
+            const sortedPoses = [...poses].sort((a, b) => {
+                return difficultyOrder[a.difficulty.toLowerCase()] - difficultyOrder[b.difficulty.toLowerCase()];
+            });
+
+            sortedPoses.forEach(pose => {
                 const poseCard = document.createElement('div');
                 poseCard.classList.add('pose-card');
                 poseCard.innerHTML = `
