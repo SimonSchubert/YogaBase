@@ -1,184 +1,177 @@
 [
   {
     "id": 1,
-    "category_name": "Core Yoga",
-    "category_description": "Engage your abdominal muscles with core yoga poses that build a strong and stable center like Boat Pose, Dolphin Pose and Side Plank Pose.",
-    "poses": [
-      1,
-      2,
-      7,
-      9,
-      13,
-      14,
-      26,
-      34
-    ]
+    "category_name": "Gentle Beginner Flow",
+    "category_description": "A soothing sequence for beginners to ease into yoga with foundational poses and breath focus.",
+    "poses": [4, 7, 10, 11, 35],
+    "difficulty": "Beginner"
   },
   {
     "id": 2,
-    "category_name": "Seated Yoga",
-    "category_description": " Yoga practice with seated poses that help you find better alignment, increase your flexibility, and relieve lower back pain and discomfort. Tone the belly, massage your internal organs, and relieve lower back pain in these seated yoga poses. ",
-    "poses": [
-      1,
-      2,
-      5,
-      30,
-      31,
-      32,
-      36,
-      40
-    ]
+    "category_name": "Morning Wake-Up",
+    "category_description": "A beginner-friendly sequence to energize and stretch the body for the day ahead.",
+    "poses": [5, 12, 15, 38, 41, 43, 45],
+    "difficulty": "Beginner"
   },
   {
     "id": 3,
-    "category_name": "Strengthening Yoga",
-    "category_description": "Work and tone your entire body with strengthening yoga poses like Chair Pose, Warrior I Pose and Extended Side Angle Pose.",
-    "poses": [
-      1,
-      2,
-      9,
-      14,
-      15,
-      18,
-      19,
-      22,
-      26,
-      28,
-      42,
-      44,
-      45,
-      46,
-      47
-    ]
+    "category_name": "Restful Basics",
+    "category_description": "A calming beginner sequence to relax and restore with gentle poses.",
+    "poses": [10, 11, 24],
+    "difficulty": "Beginner"
   },
   {
     "id": 4,
-    "category_name": "Chest Opening Yoga",
-    "category_description": "Open your heart and shoulders in chest opening yoga poses like Camel Pose, Fish Pose and Wild Thing.",
-    "poses": [
-      3,
-      6,
-      8,
-      35,
-      43,
-      47,
-      48
-    ]
+    "category_name": "Balanced Foundations",
+    "category_description": "A beginner sequence to build balance and strength with standing and seated poses.",
+    "poses": [9, 12, 26, 41, 42, 44, 45, 7, 8],
+    "difficulty": "Beginner"
   },
   {
     "id": 5,
-    "category_name": "Backbend Yoga",
-    "category_description": "Discover the powerful effects of yoga backbends with step-by-step instructions, sequences, and expert advice to keep your practice pain-free.",
-    "poses": [
-      3,
-      6,
-      8,
-      24,
-      25,
-      35,
-      43,
-      47
-    ]
+    "category_name": "Core and Stretch",
+    "category_description": "A beginner sequence to strengthen the core and improve flexibility with simple poses.",
+    "poses": [4, 7, 8, 26, 35, 43],
+    "difficulty": "Beginner"
   },
   {
     "id": 6,
-    "category_name": "Forward Bend Yoga",
-    "category_description": "Learn how to work stiff muscles safely, promote lower-body flexibility, and find correct alignment with forward bend yoga poses.",
-    "poses": [
-      5,
-      10,
-      15,
-      20,
-      28,
-      30,
-      38,
-      40
-    ]
+    "category_name": "Intermediate Core Strength",
+    "category_description": "A dynamic intermediate sequence to build core stability and strength.",
+    "poses": [1, 2, 14, 34, 46],
+    "difficulty": "Intermediate"
   },
   {
     "id": 7,
-    "category_name": "Hip Opening Yoga",
-    "category_description": "Loosen tight hips, improve your range of motion and circulation, alleviate back pain and more in these hip-opening yoga poses.",
-    "poses": [
-      5,
-      10,
-      16,
-      17,
-      25,
-      32,
-      40
-    ]
+    "category_name": "Hip Opening Flow",
+    "category_description": "An intermediate sequence to deeply stretch and open the hips for greater flexibility.",
+    "poses": [5, 17, 24, 31, 37, 20, 28, 30, 32],
+    "difficulty": "Intermediate"
   },
   {
     "id": 8,
-    "category_name": "Standing Yoga",
-    "category_description": "Develop strength and stability in your standing poses, and feel the benefits throughout your practice. Build strength and set the foundation for a safe yoga practice. ",
-    "poses": [
-      9,
-      12,
-      14,
-      15,
-      16,
-      17,
-      18,
-      21,
-      22,
-      23,
-      28,
-      29,
-      37,
-      39,
-      41,
-      42,
-      44,
-      45,
-      46
-    ]
+    "category_name": "Twist and Energize",
+    "category_description": "An intermediate twisting sequence to detoxify and boost energy levels.",
+    "poses": [6, 14, 18, 29, 32],
+    "difficulty": "Intermediate"
   },
   {
     "id": 9,
-    "category_name": "Restorative Yoga",
-    "category_description": "Restorative yoga focuses on winding down after a long day and relaxing your mind. At its core, this style focuses on body relaxation. You spend more time in fewer postures throughout the class. Many of the poses are modified to be easier and more relaxing. Restorative yoga also helps to cleanse and free your mind.",
-    "poses": [
-      10,
-      11
-    ]
+    "category_name": "Balance Challenge",
+    "category_description": "An intermediate sequence to enhance balance and coordination with standing poses.",
+    "poses": [16, 17, 21, 28, 46, 34, 1],
+    "difficulty": "Intermediate"
   },
   {
     "id": 10,
-    "category_name": "Arm Balance Yoga",
-    "category_description": "Move past fear, build better balance, and strengthen your body with arm balance yoga poses like Crane Pose, Plank Pose, Firefly Pose amd more.",
-    "poses": [
-      13,
-      26,
-      34,
-      48
-    ]
+    "category_name": "Vigorous Flow",
+    "category_description": "A high-energy intermediate flow to build endurance and strength through dynamic transitions.",
+    "poses": [14, 18, 20, 29, 30, 34, 46, 6, 16, 21],
+    "difficulty": "Intermediate"
   },
   {
     "id": 11,
-    "category_name": "Balancing Yoga",
-    "category_description": "Build a strong foundation for your asana practice with these balancing yoga poses. Get step-by-step instructions and reap the benefits.",
-    "poses": [
-      16,
-      17,
-      21,
-      22,
-      33,
-      34,
-      39,
-      41,
-      46
-    ]
+    "category_name": "Heart Opening Sequence",
+    "category_description": "An intermediate sequence to open the chest and strengthen the back with backbends.",
+    "poses": [6, 14, 18, 20, 29],
+    "difficulty": "Intermediate"
   },
   {
     "id": 12,
-    "category_name": "Inversion Yoga",
-    "category_description": "Master inversions—overcome fear and discover how to defy gravity with these step-by-step instructions. Learn how to prepare for and stay safe in inversion yoga poses.",
-    "poses": [
-      19,
-      27,
-      33
-    ]
+    "category_name": "Core and Stability",
+    "category_description": "An intermediate sequence blending core work and balancing poses for overall stability.",
+    "poses": [1, 2, 16, 21, 34, 46, 17, 28],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 13,
+    "category_name": "Seated Flexibility",
+    "category_description": "An intermediate sequence of seated poses to deepen hip and hamstring flexibility.",
+    "poses": [5, 24, 30, 31, 32, 37],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 14,
+    "category_name": "Warrior Power",
+    "category_description": "An intermediate sequence focusing on warrior poses to build strength and confidence.",
+    "poses": [18, 29, 46, 21, 16, 34],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 15,
+    "category_name": "Energy and Balance",
+    "category_description": "An energizing intermediate sequence to boost vitality and improve balance.",
+    "poses": [6, 16, 17, 21, 28, 29, 34, 46, 1, 14],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 16,
+    "category_name": "Advanced Core Intensive",
+    "category_description": "An advanced sequence to intensely target core strength with challenging poses.",
+    "poses": [1, 13, 19, 22, 33],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 17,
+    "category_name": "Inversion Exploration",
+    "category_description": "An advanced sequence to master inversions, building strength and control.",
+    "poses": [13, 19, 22, 27, 33, 47, 48],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 18,
+    "category_name": "Flexibility Extreme",
+    "category_description": "An advanced sequence to push flexibility boundaries with deep stretches and splits.",
+    "poses": [25, 36, 40, 27, 33, 24, 31],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 19,
+    "category_name": "Arm Balance Mastery",
+    "category_description": "An advanced sequence focusing on arm balances to strengthen the upper body.",
+    "poses": [13, 19, 22, 34, 47, 48],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 20,
+    "category_name": "Deep Backbends",
+    "category_description": "An advanced sequence to deepen backbends, opening the chest and spine.",
+    "poses": [6, 25, 47, 48, 27, 33, 19, 13, 22],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 21,
+    "category_name": "Ultimate Flow",
+    "category_description": "A comprehensive advanced flow combining strength, balance, and flexibility.",
+    "poses": [13, 19, 22, 25, 36, 40, 47, 48, 27, 33],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 22,
+    "category_name": "Precision and Power",
+    "category_description": "An advanced sequence emphasizing precise alignment and powerful poses.",
+    "poses": [13, 19, 22, 27, 33, 36],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 23,
+    "category_name": "Hip and Heart Intensive",
+    "category_description": "An advanced sequence to deeply open hips and heart for flexibility and emotional release.",
+    "poses": [25, 36, 40, 47, 48, 24],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 24,
+    "category_name": "Strength and Control",
+    "category_description": "An advanced sequence to build strength and control with challenging poses.",
+    "poses": [13, 19, 22, 34, 46, 47, 48, 1, 27],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 25,
+    "category_name": "Yoga Mastery",
+    "category_description": "An advanced sequence to challenge strength, balance, and flexibility for seasoned practitioners.",
+    "poses": [13, 19, 22, 25, 27, 33, 36, 47, 48],
+    "difficulty": "Advanced"
   }
 ]
