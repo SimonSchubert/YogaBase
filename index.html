@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YogaBase</title>
+    <title>YogaBase - Online Yoga Sessions and Poses</title>
+    <meta name="description" content="YogaBase is an open-source platform offering online yoga sessions and poses to help you achieve balance and wellness.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:title" content="YogaBase - Online Yoga Sessions and Poses">
+    <meta property="og:description" content="Discover a variety of yoga sessions and poses to enhance your practice.">
+    <meta property="og:image" content="/images/yogabase-og-image.jpg">
+    <meta property="og:url" content="https://www.yogabase.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="YogaBase - Online Yoga Sessions and Poses">
+    <meta name="twitter:description" content="Discover a variety of yoga sessions and poses to enhance your practice.">
+    <meta name="twitter:image" content="/images/yogabase-twitter-image.jpg">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 </head>
 <body>
 
@@ -21,9 +31,9 @@
             <p id="exercise-description"></p>
             
             <div id="difficulty-selector">
-                <button class="difficulty-btn" data-level="beginner">Beginner</button>
-                <button class="difficulty-btn" data-level="intermediate">Intermediate</button>
-                <button class="difficulty-btn" data-level="advanced">Advanced</button>
+                <button class="difficulty-btn" data-level="beginner">Swift</button>
+                <button class="difficulty-btn" data-level="intermediate">Balanced</button>
+                <button class="difficulty-btn" data-level="advanced">Endurance</button>
             </div>
             
             <div class="progress-bar">
@@ -158,10 +168,22 @@
         function displayCategories(categories) {
             const categoriesContainer = document.getElementById('categories-container');
             categoriesContainer.innerHTML = ''; // Clear existing categories
+            
+            // Sort categories by difficulty level (beginner -> intermediate -> advanced)
+            const difficultyOrder = { 'beginner': 1, 'intermediate': 2, 'advanced': 3 };
+            
+            const sortedCategories = [...categories].sort((a, b) => {
+                return difficultyOrder[a.difficulty.toLowerCase()] - difficultyOrder[b.difficulty.toLowerCase()];
+            });
 
-            categories.forEach(category => {
+            sortedCategories.forEach(category => {
                 const categoryCard = document.createElement('div');
                 categoryCard.classList.add('category-card');
+                
+                // Create difficulty badge
+                const difficultyBadge = document.createElement('div');
+                difficultyBadge.classList.add('difficulty-badge', `difficulty-${category.difficulty.toLowerCase()}`);
+                difficultyBadge.textContent = category.difficulty;
                 
                 // Create category header and description
                 const title = document.createElement('h3');
@@ -183,7 +205,7 @@
                         const thumbnail = document.createElement('img');
                         thumbnail.src = pose.url_svg;
                         thumbnail.alt = pose.english_name;
-                        thumbnail.loading = 'lazy';  // Add lazy loading
+                        thumbnail.loading = 'lazy';
                         thumbnail.classList.add('category-pose-thumbnail');
                         posesPreview.appendChild(thumbnail);
                     }
@@ -200,6 +222,7 @@
                 startButton.textContent = 'Start Session';
                 
                 // Assemble card
+                categoryCard.appendChild(difficultyBadge);  // Add the difficulty badge
                 categoryCard.appendChild(title);
                 categoryCard.appendChild(description);
                 categoryCard.appendChild(posesPreview);
@@ -221,7 +244,7 @@
             currentExercise = category;
             
             // Update exercise information
-            document.getElementById('exercise-title').textContent = category.category_name;
+            document.getElementById('exercise-title').textContent = `${category.category_name} (${category.difficulty})`;
             document.getElementById('exercise-description').textContent = category.category_description;
             
             // Show exercise container and hide poses container
@@ -281,7 +304,7 @@
             const seconds = totalDuration % 60;
             
             document.getElementById('exercise-stats').textContent = 
-                `Total: ${poseCount} poses • ${minutes}m ${seconds}s • ${selectedDifficulty} level`;
+                `Total: ${poseCount} poses • ${minutes}m ${seconds}s`;
         }
 
         // Close exercise flow and return to main view
