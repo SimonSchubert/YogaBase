@@ -7,7 +7,6 @@ body {
 header {
     text-align: center;
     padding: 20px;
-    background-color: #4CAF50;
     color: white;
 }
 #filter {
@@ -29,7 +28,6 @@ header {
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    background-color: #e8f5e9;
     border-radius: 5px;
     margin: 0 20px;
 }
