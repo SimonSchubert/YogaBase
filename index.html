@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoga Poses Explorer</title>
+    <title>YogaBase</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
 </head>
 <body>
 
@@ -37,7 +38,6 @@
             <div class="current-pose">
                 <img id="current-pose-img" src="" alt="Current pose">
                 <h3 id="current-pose-name"></h3>
-                <p id="current-pose-sanskrit"></p>
             </div>
             
             <div class="timer-container">
@@ -270,7 +270,6 @@
             const currentPose = categoryPoses[0];
             document.getElementById('current-pose-img').src = currentPose.url_svg;
             document.getElementById('current-pose-name').textContent = currentPose.english_name;
-            document.getElementById('current-pose-sanskrit').textContent = currentPose.sanskrit_name;
 
             // Ensure voice toggle shows correct state
             document.getElementById('voice-toggle-btn').textContent = voiceEnabled ? '🔊' : '🔇';
@@ -334,7 +333,6 @@
             // Update current pose display
             document.getElementById('current-pose-img').src = currentPose.url_svg;
             document.getElementById('current-pose-name').textContent = currentPose.english_name;
-            document.getElementById('current-pose-sanskrit').textContent = currentPose.sanskrit_name;
             
             // Update active mini pose
             const miniPoses = document.querySelectorAll('.mini-pose');
@@ -400,7 +398,6 @@
         function finishExercise() {
             document.getElementById('current-pose-img').src = '';
             document.getElementById('current-pose-name').textContent = 'Exercise Completed!';
-            document.getElementById('current-pose-sanskrit').textContent = 'Great job!';
             document.getElementById('timer').textContent = '00:00';
             document.getElementById('timer-label').textContent = 'Completed';
             document.getElementById('progress-bar').style.width = '100%';
@@ -415,9 +412,9 @@
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
 
             const filteredPoses = allPoses.filter(pose => {
-                const matchesSearch = pose.english_name.toLowerCase().includes(searchTerm) || 
-                                     pose.sanskrit_name.toLowerCase().includes(searchTerm);
-                return matchesSearch;
+                // Only search in English names
+                return pose.english_name.toLowerCase().includes(searchTerm);
+                // Removing: pose.sanskrit_name.toLowerCase().includes(searchTerm)
             });
 
             displayPoses(filteredPoses);
@@ -434,7 +431,6 @@
                 poseCard.innerHTML = `
                     <img src="${pose.url_svg}" alt="${pose.english_name}" loading="lazy">
                     <h2>${pose.english_name}</h2>
-                    <p><em>${pose.sanskrit_name}</em></p>
                     <p><strong>Benefits:</strong> ${pose.pose_benefits}</p>
                 `;
                 posesContainer.appendChild(poseCard);
