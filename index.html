@@ -20,13 +20,41 @@
 <body>
 
     <main>
-
         <h2 class="section-title">Start Session</h2>
         <div id="categories-container">
             <!-- Category cards will be inserted here via JS -->
         </div>
         
-        <div id="exercise-container">
+        <h2 class="section-title">All Poses</h2>
+        <div id="poses-container">
+            <!-- Pose cards will be inserted here via JS -->
+        </div>
+    </main>
+    
+    <!-- Full-screen session UI -->
+    <div id="session-fullscreen" class="session-fullscreen">
+        <div class="session-header">
+            <button id="session-back-btn" class="session-back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button id="voice-toggle-btn" class="voice-toggle-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-on">
+                    <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-off" style="display: none;">
+                    <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="session-content">
             <h2 id="exercise-title"></h2>
             <p id="exercise-description"></p>
             
@@ -58,16 +86,10 @@
             <div class="control-buttons">
                 <button id="start-btn" class="control-btn">Start Exercise</button>
                 <button id="pause-btn" class="control-btn">Pause</button>
-                <button id="back-btn" class="control-btn back-btn">Back</button>
-                <button id="voice-toggle-btn" class="voice-toggle-btn">🔊</button>
             </div>
         </div>
-        
-        <h2 class="section-title">All Poses</h2>
-        <div id="poses-container">
-            <!-- Pose cards will be inserted here via JS -->
-        </div>
-    </main>
+    </div>
+    
     <script>
         let allPoses = [];
         let allCategories = [];
@@ -120,12 +142,10 @@
             })
             .catch(error => console.error('Error fetching data:', error));
     
-
-            
             // Add event listeners for exercise controls
             document.getElementById('start-btn').addEventListener('click', startExercise);
             document.getElementById('pause-btn').addEventListener('click', togglePause);
-            document.getElementById('back-btn').addEventListener('click', closeExercise);
+            document.getElementById('session-back-btn').addEventListener('click', closeExercise);
             
             // Add event listeners for difficulty buttons
             const difficultyBtns = document.querySelectorAll('.difficulty-btn');
@@ -146,21 +166,38 @@
             // Set default difficulty
             document.querySelector('[data-level="beginner"]').classList.add('selected');
 
-            // Update the event listener in the DOMContentLoaded section
-            // Replace the existing voice toggle event listener with this
+            // Voice toggle event listener
             document.getElementById('voice-toggle-btn').addEventListener('click', function() {
                 voiceEnabled = !voiceEnabled;
                 
-                // Update the icon
-                this.textContent = voiceEnabled ? '🔊' : '🔇';
+                // Update the icon visibility based on state
+                const soundOnIcon = this.querySelector('.sound-on');
+                const soundOffIcon = this.querySelector('.sound-off');
                 
-                // If toggled off while speaking, stop current speech
-                if (!voiceEnabled) {
+                if (voiceEnabled) {
+                    soundOnIcon.style.display = 'block';
+                    soundOffIcon.style.display = 'none';
+                } else {
+                    soundOnIcon.style.display = 'none';
+                    soundOffIcon.style.display = 'block';
+                    
+                    // If toggled off while speaking, stop current speech
                     speechSynthesis.cancel();
                 }
             });
 
-            // Add this line after your existing DOM content loaded code
+            // Ensure voice toggle shows correct state
+            const soundOnIcon = document.querySelector('.voice-toggle-btn .sound-on');
+            const soundOffIcon = document.querySelector('.voice-toggle-btn .sound-off');
+            if (voiceEnabled) {
+                soundOnIcon.style.display = 'block';
+                soundOffIcon.style.display = 'none';
+            } else {
+                soundOnIcon.style.display = 'none';
+                soundOffIcon.style.display = 'block';
+            }
+
+            // Add lazy loading for images
             document.getElementById('current-pose-img').loading = 'lazy';
         });
 
@@ -247,8 +284,9 @@
             document.getElementById('exercise-title').textContent = `${category.category_name} (${category.difficulty})`;
             document.getElementById('exercise-description').textContent = category.category_description;
             
-            // Show exercise container and hide poses container
-            document.getElementById('exercise-container').style.display = 'flex';
+            // Show full-screen session UI
+            document.getElementById('session-fullscreen').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling of background content
             
             // Reset exercise state
             currentPoseIndex = 0;
@@ -267,11 +305,6 @@
             // Reset progress bar
             document.getElementById('progress-bar').style.width = '0%';
             
-            // Scroll to exercise container
-            document.getElementById('exercise-container').scrollIntoView({
-                behavior: 'smooth'
-            });
-            
             // Display all poses in small preview
             const allPosesPreview = document.getElementById('all-poses-preview');
             allPosesPreview.innerHTML = '';
@@ -289,29 +322,11 @@
             // Update exercise stats
             updateExerciseStats(category.poses.length);
             
+            // Set up first pose but don't display it yet
             const currentPose = category.poses[0];
             document.getElementById('current-pose-img').src = currentPose.url_svg;
             document.getElementById('current-pose-name').textContent = currentPose.english_name;
-
-            // Ensure voice toggle shows correct state
-            document.getElementById('voice-toggle-btn').textContent = voiceEnabled ? '🔊' : '🔇';
-        }
-
-        // Add a new function to update exercise stats
-        function updateExerciseStats(poseCount) {
-            const totalDuration = poseCount * poseDurations[selectedDifficulty];
-            const minutes = Math.floor(totalDuration / 60);
-            const seconds = totalDuration % 60;
-            
-            document.getElementById('exercise-stats').textContent = 
-                `Total: ${poseCount} poses • ${minutes}m ${seconds}s`;
-        }
-
-        // Close exercise flow and return to main view
-        function closeExercise() {
-            document.getElementById('exercise-container').style.display = 'none';
-            clearInterval(timerInterval);
-            exerciseStarted = false;
+            document.querySelector('.current-pose').style.display = 'none';
         }
 
         // Start the exercise flow with selected difficulty
@@ -323,10 +338,16 @@
             exerciseStarted = true;
             exercisePaused = false;
             
-            // Hide start button and show pause button
+            // Hide elements that shouldn't be shown during exercise
             document.getElementById('start-btn').style.display = 'none';
             document.getElementById('difficulty-selector').style.display = 'none';
+            document.getElementById('exercise-title').style.display = 'none';
+            document.getElementById('exercise-description').style.display = 'none';
+            document.getElementById('exercise-stats').style.display = 'none';
+            
+            // Show elements needed during exercise
             document.getElementById('pause-btn').style.display = 'inline-block';
+            document.querySelector('.current-pose').style.display = 'block';
             
             // Get poses for this category
             const categoryPoses = [];
@@ -427,6 +448,41 @@
             document.getElementById('start-btn').style.display = 'inline-block';
             document.getElementById('start-btn').textContent = 'Restart Exercise';
             exerciseStarted = false;
+            
+            // Keep the completed message visible
+            document.querySelector('.current-pose').style.display = 'block';
+            
+            // Show these elements again for restart
+            document.getElementById('exercise-title').style.display = 'block';
+            document.getElementById('exercise-stats').style.display = 'block';
+        }
+
+        // Close exercise flow and return to main view
+        function closeExercise() {
+            document.getElementById('session-fullscreen').style.display = 'none';
+            document.body.style.overflow = ''; // Restore scrolling
+            clearInterval(timerInterval);
+            exerciseStarted = false;
+            
+            // Reset display of all elements for next time
+            document.getElementById('exercise-title').style.display = 'block';
+            document.getElementById('exercise-description').style.display = 'block';
+            document.getElementById('exercise-stats').style.display = 'block';
+            
+            // If there was speech in progress, stop it
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+            }
+        }
+
+        // Add a new function to update exercise stats
+        function updateExerciseStats(poseCount) {
+            const totalDuration = poseCount * poseDurations[selectedDifficulty];
+            const minutes = Math.floor(totalDuration / 60);
+            const seconds = totalDuration % 60;
+            
+            document.getElementById('exercise-stats').textContent = 
+                `Total: ${poseCount} poses • ${minutes}m ${seconds}s`;
         }
 
         // Filter poses based on search term
