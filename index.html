@@ -81,12 +81,28 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Fetch poses
             Promise.all([
-                fetch('https://yoga-api-nzy4.onrender.com/v1/poses').then(response => response.json()),
-                fetch('https://yoga-api-nzy4.onrender.com/v1/categories').then(response => response.json())
+                fetch('data/poses.json').then(response => response.json()),
+                fetch('data/categories.json').then(response => response.json())
             ])
             .then(([posesData, categoriesData]) => {
                 allPoses = posesData;
                 allCategories = categoriesData;
+
+                allCategories.forEach(category => {
+                    const categoryPoses = [];
+                    category.poses.forEach(pose => {
+                        const fullPose = allPoses.find(p => p.id === pose);
+                        if (fullPose) {
+                            categoryPoses.push(fullPose);
+                        }
+                    });
+                    category.poses = categoryPoses;
+                });
+
+                allPoses.forEach(pose => {
+                    // Add local image paths
+                    pose.url_svg = `images/poses/${pose.id}.svg`;
+                });
                 
                 // Now we can safely display both with all data available
                 displayPoses(allPoses);
@@ -159,19 +175,10 @@
                 const posesPreview = document.createElement('div');
                 posesPreview.classList.add('category-poses-preview');
                 
-                // Find the poses that belong to this category
-                const categoryPoses = [];
-                category.poses.forEach(pose => {
-                    const fullPose = allPoses.find(p => p.id === pose.id);
-                    if (fullPose) {
-                        categoryPoses.push(fullPose);
-                    }
-                });
-                
                 // Add up to 5 pose thumbnails
-                const maxThumbnails = Math.min(5, categoryPoses.length);
+                const maxThumbnails = Math.min(5, category.poses.length);
                 for (let i = 0; i < maxThumbnails; i++) {
-                    const pose = categoryPoses[i];
+                    const pose = category.poses[i];
                     if (pose && pose.url_svg) {
                         const thumbnail = document.createElement('img');
                         thumbnail.src = pose.url_svg;
@@ -185,7 +192,7 @@
                 // Add category stats
                 const stats = document.createElement('div');
                 stats.classList.add('category-stats');
-                stats.textContent = `${categoryPoses.length} poses`;
+                stats.textContent = `${category.poses.length} poses`;
                 
                 // Add start button
                 const startButton = document.createElement('button');
@@ -241,20 +248,12 @@
             document.getElementById('exercise-container').scrollIntoView({
                 behavior: 'smooth'
             });
-
-            const categoryPoses = [];
-            currentExercise.poses.forEach(pose => {
-                const fullPose = allPoses.find(p => p.id === pose.id);
-                if (fullPose) {
-                    categoryPoses.push(fullPose);
-                }
-            });
             
             // Display all poses in small preview
             const allPosesPreview = document.getElementById('all-poses-preview');
             allPosesPreview.innerHTML = '';
             
-            categoryPoses.forEach((pose, index) => {
+            currentExercise.poses.forEach((pose, index) => {
                 const miniImg = document.createElement('img');
                 miniImg.src = pose.url_svg;
                 miniImg.alt = pose.english_name;
@@ -265,9 +264,9 @@
             });
             
             // Update exercise stats
-            updateExerciseStats(categoryPoses.length);
+            updateExerciseStats(category.poses.length);
             
-            const currentPose = categoryPoses[0];
+            const currentPose = category.poses[0];
             document.getElementById('current-pose-img').src = currentPose.url_svg;
             document.getElementById('current-pose-name').textContent = currentPose.english_name;
 
@@ -429,6 +428,7 @@
                 const poseCard = document.createElement('div');
                 poseCard.classList.add('pose-card');
                 poseCard.innerHTML = `
+                    <div class="difficulty-badge difficulty-${pose.difficulty.toLowerCase()}">${pose.difficulty}</div>
                     <img src="${pose.url_svg}" alt="${pose.english_name}" loading="lazy">
                     <h2>${pose.english_name}</h2>
                     <p><strong>Benefits:</strong> ${pose.pose_benefits}</p>

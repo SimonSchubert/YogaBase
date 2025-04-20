@@ -283,3 +283,29 @@ header {
 .voice-toggle-btn:focus {
     outline: none;
 }
+
+/* Add to your existing styles.css file */
+.difficulty-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.difficulty-beginner {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.difficulty-intermediate {
+  background-color: #FF9800; /* Orange */
+  color: white;
+}
+
+.difficulty-advanced {
+  background-color: #F44336; /* Red */
+  color: white;
+}
