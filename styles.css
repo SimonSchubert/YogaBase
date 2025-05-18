@@ -3,11 +3,11 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 header {
     text-align: center;
     padding: 20px;
-    color: white;
 }
 #filter {
     text-align: center;
@@ -449,4 +449,19 @@ header {
     .mini-pose {
         height: 40px;
     }
+}
+a {
+    color: #121212;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #bdbdbd;
+}
+
+
+footer {
+    background-color: white;
+    font-size: 0.9em;
+    text-align: center;
 }

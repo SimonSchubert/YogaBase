@@ -3,18 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YogaBase - Online Yoga Sessions and Poses</title>
-    <meta name="description" content="YogaBase is an open-source platform offering online yoga sessions and poses to help you achieve balance and wellness.">
+    <title>YogaBase - Free Online Yoga Sessions and Pose Library</title>
+    <meta name="description" content="Discover free, open-source yoga sessions for all levels. Access a comprehensive pose library with benefits, proper form, and guided instructions.">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <meta property="og:title" content="YogaBase - Online Yoga Sessions and Poses">
-    <meta property="og:description" content="Discover a variety of yoga sessions and poses to enhance your practice.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="YogaBase - Free Online Yoga Sessions and Pose Library">
+    <meta property="og:description" content="Access free yoga sessions for all skill levels from beginner to advanced. Explore our complete pose library with benefits and instructions.">
     <meta property="og:url" content="https://simonschubert.github.io/YogaBase/">
     <meta property="og:type" content="website">
-    <meta name="twitter:title" content="YogaBase - Online Yoga Sessions and Poses">
-    <meta name="twitter:description" content="Discover a variety of yoga sessions and poses to enhance your practice.">
+    <meta property="og:image" content="https://simonschubert.github.io/YogaBase/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="YogaBase - Free Online Yoga Sessions and Pose Library">
+    <meta name="twitter:description" content="Access free yoga sessions for all skill levels from beginner to advanced. Explore our complete pose library with benefits and instructions.">
+    <meta name="twitter:image" content="https://simonschubert.github.io/YogaBase/og-image.jpg">
+    
+    <!-- Additional SEO -->
+    <meta name="keywords" content="yoga, yoga poses, free yoga, online yoga, beginner yoga, yoga sessions, yoga library, yoga practice, yoga benefits">
+    <link rel="canonical" href="https://simonschubert.github.io/YogaBase/">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Simon Schubert">
+    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>YogaBase - Online Yoga Sessions and Poses</h1>
+        <p class="tagline">Open-source platform for all yoga enthusiasts</p>
+    </header>
 
     <main>
         <h2 class="section-title">Start Session</h2>
@@ -92,6 +110,38 @@
         </div>
     </div>
     
+    <footer style="width: 100%; justify-content: center; display: flex; align-items: center; gap: 2px;">
+        YogaBase - Simon Schubert - info@betabase.fun -
+
+        <div class="project"><a href="https://betabase.fun/" target="_blank" rel="noopener"><img src="https://betabase.fun/images/icon.png" width="10" height="10"> Climbing</a></div>
+        <div class="project"><a href="https://adahub.io" target="_blank" rel="noopener"><img src="https://adahub.io/favicon.svg" alt="adahub.io" width="10" height="10"> Blockchain</a></div>
+        <div class="project"><a href="https://endlessdungeon.fun" target="_blank" rel="noopener"><img src="https://endlessdungeon-production.up.railway.app/favicon.png" alt="endlessdungeon.fun" width="10" height="10"> Game</a></div>
+        <div class="project"><a href="https://linuxcommandlibrary.com/" target="_blank" rel="noopener"><img src="https://adahub.io/icons/project-linux.webp" alt="endlessdungeon.fun" width="10" height="10"> Linux</a></div>
+
+    </footer>
+    
+    <!-- Schema.org structured data for rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "YogaBase",
+  "url": "https://simonschubert.github.io/YogaBase/",
+  "description": "An open-source platform offering online yoga sessions and poses to help you achieve balance and wellness.",
+  "applicationCategory": "HealthApplication",
+  "genre": "yoga",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Simon Schubert"
+  }
+}
+</script>
+    
     <script>
         let allPoses = [];
         let allCategories = [];
@@ -103,12 +153,13 @@
         let exerciseStarted = false;
         let exercisePaused = false;
         let voiceEnabled = true; // Default voice to on
+        let currentAudio = null;
 
         // Pose durations in seconds for each difficulty
         const poseDurations = {
-            beginner: 20,
-            intermediate: 30,
-            advanced: 45
+            beginner: 0.5,
+            intermediate: 1,
+            advanced: 2
         };
 
         // Fetch all poses when the page loads
@@ -160,7 +211,7 @@
                     // Update exercise stats when difficulty changes
                     if (currentExercise) {
                         const poseCount = document.querySelectorAll('.mini-pose').length;
-                        updateExerciseStats(poseCount);
+                        updateExerciseStats(currentExercise.poses);
                     }
                 });
             });
@@ -179,12 +230,18 @@
                 if (voiceEnabled) {
                     soundOnIcon.style.display = 'block';
                     soundOffIcon.style.display = 'none';
+                    if(currentAudio) {
+                        currentAudio.play();
+                    }
                 } else {
                     soundOnIcon.style.display = 'none';
                     soundOffIcon.style.display = 'block';
                     
                     // If toggled off while speaking, stop current speech
                     speechSynthesis.cancel();
+                    if(currentAudio) {
+                        currentAudio.pause();
+                    }
                 }
             });
 
@@ -322,7 +379,7 @@
             });
             
             // Update exercise stats
-            updateExerciseStats(category.poses.length);
+            updateExerciseStats(category.poses);
             
             // Set up first pose but don't display it yet
             const currentPose = category.poses[0];
@@ -349,6 +406,7 @@
             
             exerciseStarted = true;
             exercisePaused = false;
+            document.getElementById('pause-btn').textContent = 'Pause';
             
             // Hide elements that shouldn't be shown during exercise
             document.getElementById('start-btn').style.display = 'none';
@@ -401,13 +459,11 @@
             
             // Read pose description using text-to-speech only if voice is enabled
             if (voiceEnabled && currentPose.pose_description) {
-                const utterance = new SpeechSynthesisUtterance(currentPose.pose_description.substring(0, 100)+"...");
-                speechSynthesis.cancel(); // Cancel any ongoing speech
-                speechSynthesis.speak(utterance);
+                speakPoseDescription(currentPose.pose_description);
             }
             
             // Set timer duration based on difficulty
-            timeRemaining = poseDurations[selectedDifficulty];
+            timeRemaining = currentPose.base_time * poseDurations[selectedDifficulty];
             updateTimerDisplay();
             
             // Update progress bar
@@ -431,8 +487,8 @@
 
         // Update timer display
         function updateTimerDisplay() {
-            const minutes = Math.floor(timeRemaining / 60);
-            const seconds = timeRemaining % 60;
+            const minutes = Math.max(0,Math.floor(timeRemaining / 60));
+            const seconds = Math.max(0,(timeRemaining % 60).toFixed(0));
             document.getElementById('timer').textContent = 
                 `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             
@@ -447,6 +503,14 @@
         function togglePause() {
             exercisePaused = !exercisePaused;
             document.getElementById('pause-btn').textContent = exercisePaused ? 'Resume' : 'Pause';
+
+            if(currentAudio && voiceEnabled) {
+                if(exercisePaused) {
+                    currentAudio.pause();
+                } else {
+                    currentAudio.play();
+                }
+            }
         }
 
         // Finish the exercise
@@ -485,16 +549,24 @@
             if (speechSynthesis.speaking) {
                 speechSynthesis.cancel();
             }
+            
+            // Stop any playing audio
+            if (currentAudio) {
+                currentAudio.pause();
+            }
         }
 
         // Add a new function to update exercise stats
-        function updateExerciseStats(poseCount) {
-            const totalDuration = poseCount * poseDurations[selectedDifficulty];
+        function updateExerciseStats(poses) {
+            var totalDuration = 0;
+            poses.forEach(pose => {
+                totalDuration += pose.base_time * poseDurations[selectedDifficulty];
+            });
             const minutes = Math.floor(totalDuration / 60);
             const seconds = totalDuration % 60;
             
             document.getElementById('exercise-stats').textContent = 
-                `Total: ${poseCount} poses • ${minutes}m ${seconds}s`;
+                `Total: ${poses.length} poses • ${minutes}m ${seconds}s`;
         }
 
         // Filter poses based on search term
@@ -527,13 +599,64 @@
                 poseCard.classList.add('pose-card');
                 poseCard.innerHTML = `
                     <div class="difficulty-badge difficulty-${pose.difficulty.toLowerCase()}">${pose.difficulty}</div>
-                    <img src="${pose.url_svg}" alt="${pose.english_name}" loading="lazy">
+                    <img src="${pose.url_svg}" alt="${pose.english_name}" loading="lazy" width="200" height="200">
                     <h2>${pose.english_name}</h2>
                     <p><strong>Benefits:</strong> ${pose.pose_benefits}</p>
                 `;
                 posesContainer.appendChild(poseCard);
             });
         }
+
+        const speakPoseDescription = (text) => {
+            if (!voiceEnabled || !text) return;
+            
+            const currentPose = currentExercise.poses[currentPoseIndex];
+            const audioFile = `data/audio/${currentPose.id}.mp3`;
+            
+            // Stop any currently playing audio
+            if (currentAudio) {
+                currentAudio.pause();
+            }
+            
+            // Create new Audio object
+            currentAudio = new Audio(audioFile);
+            
+            currentAudio.onerror = () => {
+                console.log(`Audio file not found: ${audioFile}, falling back to speech synthesis`);
+                // Fall back to speech synthesis if file not found
+                const utterance = new SpeechSynthesisUtterance(text);
+                
+                // Get available voices
+                const voices = speechSynthesis.getVoices();
+                
+                // Find a female voice which tends to sound calmer
+                const calmVoice = voices.find(voice => 
+                    voice.name.includes('Samantha') || 
+                    voice.name.includes('Karen') ||
+                    (voice.name.includes('Female') && voice.lang.includes('en'))
+                );
+                
+                if (calmVoice) utterance.voice = calmVoice;
+                
+                // Slow down the speech rate for a calmer effect
+                utterance.rate = 0.85;
+                
+                // Lower pitch slightly for a calmer tone
+                utterance.pitch = 0.9;
+                
+                // Cancel any ongoing speech
+                speechSynthesis.cancel();
+                speechSynthesis.speak(utterance);
+            };
+            
+            currentAudio.oncanplaythrough = () => {
+                console.log(`Playing audio file: ${audioFile}`);
+                currentAudio.play();
+            };
+            
+            // Try to load the audio file
+            currentAudio.load();
+        };
     </script>
 </body>
 </html>
