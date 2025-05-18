@@ -1,0 +1,386 @@
+[
+    {
+      "id": 1,
+      "english_name": "Boat",
+      "sanskrit_name_adapted": "Navasana",
+      "sanskrit_name": "Nāvāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Sit with legs extended. Lean back slightly, lift legs to 45 degrees, keep spine straight. Extend arms parallel to ground. Balance on sit bones. Engage core."
+    },
+    {
+      "id": 3,
+      "english_name": "Bow",
+      "sanskrit_name_adapted": "Dhanurasana",
+      "sanskrit_name": "Dhanurāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Lie on your stomach. Bend knees, reach back to grab ankles. Lift chest and thighs off the mat, keeping knees hip-width apart. Gaze forward. Hold and breathe."
+    },
+    {
+      "id": 4,
+      "english_name": "Bridge",
+      "sanskrit_name_adapted": "Setu Bandha Sarvangasana",
+      "sanskrit_name": "Setu Bandha Sarvāṅgāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Lie on your back, bend knees, feet hip-width apart near buttocks. Press into feet to lift hips up. Clasp hands under back, roll shoulders under, lift chest. Keep neck neutral, gaze up."
+    },
+    {
+      "id": 5,
+      "english_name": "Butterfly",
+      "sanskrit_name_adapted": "Baddha Konasana",
+      "sanskrit_name": "Baddha Koṇāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Sit with knees bent, soles of feet together. Let knees drop out to sides. Hold feet with hands. Sit tall, relax shoulders. Breathe deeply."
+    },
+    {
+      "id": 6,
+      "english_name": "Camel",
+      "sanskrit_name_adapted": "Ustrasana",
+      "sanskrit_name": "Uṣṭrāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Kneel with knees hip-width apart. Place hands on lower back or reach for heels. Lift chest, open heart. Keep neck neutral or gently drop head back if comfortable. Gaze forward or up."
+    },
+    {
+      "id": 7,
+      "english_name": "Cat",
+      "sanskrit_name_adapted": "Marjaryasana",
+      "sanskrit_name": "Marjaryāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Start on hands and knees. Round your spine up towards the ceiling, tuck chin to chest. Engage core. Gaze towards belly."
+    },
+    {
+      "id": 9,
+      "english_name": "Chair",
+      "sanskrit_name_adapted": "Utkatasana",
+      "sanskrit_name": "Utkaṭāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Stand with feet together. Bend knees deeply as if sitting in a chair. Keep weight in heels, tailbone tucked. Lift arms overhead, palms facing each other. Gaze forward."
+    },
+    {
+      "id": 10,
+      "english_name": "Child's Pose",
+      "sanskrit_name_adapted": "Balasana",
+      "sanskrit_name": "Balāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Kneel with toes together, knees apart. Sit back on heels. Fold forward, chest to thighs, arms extended forward. Forehead on mat. Relax and breathe."
+    },
+    {
+      "id": 11,
+      "english_name": "Corpse",
+      "sanskrit_name_adapted": "Sivasana",
+      "sanskrit_name": "Śavāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Lie on your back. Let arms rest by sides, palms up. Legs extended, feet apart. Close eyes, relax completely. Breathe deeply."
+    },
+    {
+      "id": 8,
+      "english_name": "Cow",
+      "sanskrit_name_adapted": "Bitilasana",
+      "sanskrit_name": "Bitilāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Start on hands and knees. Arch spine down, lift tailbone up, look up. Open chest. Breathe deeply."
+    },
+    {
+      "id": 12,
+      "english_name": "Crescent Lunge",
+      "sanskrit_name_adapted": "Alanasana",
+      "sanskrit_name": "Ashta Chandrāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Step one foot forward into a lunge. Back knee down or lifted. Lift arms overhead. Sink hips lower. Gaze forward."
+    },
+    {
+      "id": 39,
+      "english_name": "Crescent Moon",
+      "sanskrit_name_adapted": "Ashta Chandrasana",
+      "sanskrit_name": "Ashta Chandrāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Stand tall, clasp hands overhead. Lean to one side, stretching opposite side of body. Keep legs straight. Gaze up."
+    },
+    {
+      "id": 13,
+      "english_name": "Crow",
+      "sanskrit_name_adapted": "Bakasana",
+      "sanskrit_name": "Bakāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "Squat down, place hands on mat shoulder-width apart. Place knees on upper arms. Shift weight forward, lift feet off ground. Balance on hands. Gaze forward."
+    },
+    {
+      "id": 14,
+      "english_name": "Dolphin",
+      "sanskrit_name_adapted": "Ardha Pincha Mayurasana",
+      "sanskrit_name": "Pīñcha Mayūrāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Start in Downward Dog. Lower onto forearms, elbows under shoulders. Lift hips high, press heels down. Engage core. Gaze between hands."
+    },
+    {
+      "id": 15,
+      "english_name": "Downward-Facing Dog",
+      "sanskrit_name_adapted": "Adho Mukha Svanasana",
+      "sanskrit_name": "Parivṛtta Adho Mukha Śvānāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Start on hands and knees. Tuck toes, lift hips up and back. Straighten legs, press heels towards mat. Lengthen spine. Gaze between legs."
+    },
+    {
+      "id": 16,
+      "english_name": "Eagle",
+      "sanskrit_name_adapted": "Garudasana",
+      "sanskrit_name": "Garuḍāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Stand tall. Cross one leg over the other, hook foot behind calf. Cross arms in front, bend elbows, press palms together. Lift elbows. Gaze forward."
+    },
+    {
+      "id": 17,
+      "english_name": "Extended Hand to Toe",
+      "sanskrit_name_adapted": "Utthita Hasta Padangusthasana",
+      "sanskrit_name": "Utthita Hasta Pādāṅguṣṭhāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Stand tall. Lift one leg, hold big toe with hand. Slowly straighten leg forward or to side. Keep hips squared. Use strap if needed. Gaze forward."
+    },
+    {
+      "id": 18,
+      "english_name": "Extended Side Angle",
+      "sanskrit_name_adapted": "Utthita Parsvakonasana",
+      "sanskrit_name": "Utthita Pārśvakoṇāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "From Warrior II, bend front knee deeper. Reach front arm overhead, place back hand on leg or floor. Open chest, gaze up."
+    },
+    {
+      "id": 19,
+      "english_name": "Forearm Stand",
+      "sanskrit_name_adapted": "Pincha Mayurasana",
+      "sanskrit_name": "Pīñcha Mayūrāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "Start in Dolphin Pose. Walk feet closer to elbows. Lift one leg at a time up towards ceiling. Balance on forearms. Engage core. Gaze forward."
+    },
+    {
+      "id": 20,
+      "english_name": "Forward Bend with Shoulder Opener",
+      "sanskrit_name_adapted": "Uttanasana",
+      "sanskrit_name": "Uttānāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Stand tall. Fold forward from hips, keep spine long. Interlace hands behind back, straighten arms. Lift chest slightly. Gaze down."
+    },
+    {
+      "id": 37,
+      "english_name": "Garland Pose",
+      "sanskrit_name_adapted": "Malasana",
+      "sanskrit_name": "Mālāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Squat down with feet together or apart. Bring elbows inside knees, press palms together at heart center. Sink hips low. Gaze forward."
+    },
+    {
+      "id": 2,
+      "english_name": "Half Boat",
+      "sanskrit_name_adapted": "Ardha Navasana",
+      "sanskrit_name": "Ardha Nāvāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Sit with knees bent, feet off ground. Lean back slightly, lift legs to 90 degrees. Hold behind thighs or extend arms forward. Balance on sit bones. Engage core."
+    },
+    {
+      "id": 32,
+      "english_name": "Half Lord of the Fishes",
+      "sanskrit_name_adapted": "Ardha Matsyendrasana",
+      "sanskrit_name": "Ardhā Matsyendrāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Sit with legs extended. Bend one knee, cross over opposite leg. Twist torso towards bent knee, place opposite hand on floor behind you. Use elbow on thigh for leverage. Gaze over shoulder."
+    },
+    {
+      "id": 21,
+      "english_name": "Half-Moon",
+      "sanskrit_name_adapted": "Ardha Chandrasana",
+      "sanskrit_name": "Ardha Chandrāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "From Warrior III, place hand on floor beside front foot. Lift back leg parallel to ground. Extend opposite arm up. Open hips and chest. Gaze up or down."
+    },
+    {
+      "id": 22,
+      "english_name": "Handstand",
+      "sanskrit_name_adapted": "Adho Mukha Vrksasana",
+      "sanskrit_name": "Adho Mukha Vṛkṣāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "Start in Downward Dog. Walk feet closer to hands. Shift weight to hands, kick one leg up, then the other. Straighten legs, point toes. Engage core. Gaze forward."
+    },
+    {
+      "id": 25,
+      "english_name": "King Pigeon",
+      "sanskrit_name_adapted": "Eka Pada Rajakapotasana",
+      "sanskrit_name": "Eka Pāda Rājakapotāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "From Pigeon Pose, bend back leg's knee, reach back to grab foot with same-side hand. Lift chest, open heart. Gaze forward."
+    },
+    {
+      "id": 31,
+      "english_name": "Lotus",
+      "sanskrit_name_adapted": "Padmasana",
+      "sanskrit_name": "Padmāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Sit tall. Place one foot on opposite thigh, then other foot on first thigh. Hands on knees or in mudra. Sit tall, relax."
+    },
+    {
+      "id": 23,
+      "english_name": "Low Lunge",
+      "sanskrit_name_adapted": "Anjaneyasana",
+      "sanskrit_name": "Aṅjaneyāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Step one foot forward into a lunge. Lower back knee to ground. Lift arms overhead or place on front thigh. Sink hips lower. Gaze forward."
+    },
+    {
+      "id": 24,
+      "english_name": "Pigeon",
+      "sanskrit_name_adapted": "Supta Kapotasana",
+      "sanskrit_name": "Supta Kapotāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Lie on back, bend knees. Cross one ankle over opposite knee. Thread hands through legs, pull top knee towards chest. Keep lower back grounded."
+    },
+    {
+      "id": 26,
+      "english_name": "Plank",
+      "sanskrit_name_adapted": "Phalakasana",
+      "sanskrit_name": "Phalakāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Start on hands and knees. Step feet back, straighten legs. Body in straight line from head to heels. Engage core. Gaze down."
+    },
+    {
+      "id": 27,
+      "english_name": "Plow",
+      "sanskrit_name_adapted": "Halasana",
+      "sanskrit_name": "Halāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "Lie on back. Lift legs over head, touch toes to floor behind head if possible. Support lower back with hands or clasp hands behind back. Keep neck neutral."
+    },
+    {
+      "id": 28,
+      "english_name": "Pyramid",
+      "sanskrit_name_adapted": "Parsvottanasana",
+      "sanskrit_name": "Pārśvottānāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Step one foot forward, other back. Hinge at hips, fold forward over front leg. Place hands on floor or blocks. Keep spine long. Gaze down."
+    },
+    {
+      "id": 29,
+      "english_name": "Reverse Warrior",
+      "sanskrit_name_adapted": "Parsva Virabhadrasana",
+      "sanskrit_name": "Pārśva Vīrabhadrāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "From Warrior II, reach front arm overhead and back, palm up. Slide back hand down back leg. Open chest, gaze up."
+    },
+    {
+      "id": 30,
+      "english_name": "Seated Forward Bend",
+      "sanskrit_name_adapted": "Paschimottanasana",
+      "sanskrit_name": "Paśchimottānāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "Sit with legs extended. Inhale to lengthen spine, exhale fold forward from hips. Reach for feet or shins. Keep spine long. Gaze forward."
+    },
+    {
+      "id": 33,
+      "english_name": "Shoulder Stand",
+      "sanskrit_name_adapted": "Salamba Sarvangasana",
+      "sanskrit_name": "Sālamba Sarvāṅgāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "Lie on back. Lift legs up, support lower back with hands. Lift hips and legs straight up towards ceiling. Keep neck neutral, gaze inward."
+    },
+    {
+      "id": 34,
+      "english_name": "Side Plank",
+      "sanskrit_name_adapted": "Vasisthasana",
+      "sanskrit_name": "Vasiṣṭhāsana",
+      "difficulty": "Intermediate",
+      "simplified_description": "From Plank Pose, roll onto outer edge of one foot. Stack feet, lift opposite arm up. Engage core. Gaze up."
+    },
+    {
+      "id": 40,
+      "english_name": "Side Splits",
+      "sanskrit_name_adapted": "Upavistha Konasana",
+      "sanskrit_name": "Upaviṣṭha Koṇāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "Sit with legs wide apart. Walk hands forward, lower torso towards floor. Keep spine long. Gaze down."
+    },
+    {
+      "id": 35,
+      "english_name": "Sphinx",
+      "sanskrit_name_adapted": "Salamba Bhujangasana",
+      "sanskrit_name": "Sālamba Bhujaṅgāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Lie on stomach. Place forearms on mat, elbows under shoulders. Lift chest slightly, press shoulders down. Gaze forward."
+    },
+    {
+      "id": 36,
+      "english_name": "Splits",
+      "sanskrit_name_adapted": "Hanumanasana",
+      "sanskrit_name": "Hanumānāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "From Lunge Pose, slowly slide front foot forward and back foot back until legs are straight in splits. Keep hips squared. Gaze forward."
+    },
+    {
+      "id": 38,
+      "english_name": "Standing Forward Bend",
+      "sanskrit_name_adapted": "Uttanasana",
+      "sanskrit_name": "Uttānāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Stand tall. Fold forward from hips, keep spine long. Reach for shins, ankles, or floor. Let head hang heavy. Gaze down."
+    },
+    {
+      "id": 41,
+      "english_name": "Tree",
+      "sanskrit_name_adapted": "Vrksasana",
+      "sanskrit_name": "Vṛkṣāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Stand tall. Place one foot on inner thigh or calf (not knee). Bring palms together overhead. Find balance. Gaze forward."
+    },
+    {
+      "id": 42,
+      "english_name": "Triangle",
+      "sanskrit_name_adapted": "Trikonasana",
+      "sanskrit_name": "Trikoṇāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Stand with legs wide apart. Turn front foot out, back foot slightly in. Reach one arm up, other down to shin or floor. Keep hips open. Gaze up."
+    },
+    {
+      "id": 43,
+      "english_name": "Upward-Facing Dog",
+      "sanskrit_name_adapted": "Urdhva Mukha Svsnssana",
+      "sanskrit_name": "Ūrdhva Mukha Śvānāsana",
+      "difficulty": "Beginner",
+      "simplified_description": "Lie on stomach. Place hands by shoulders. Press into hands to lift chest and thighs off mat. Roll shoulders back, open chest. Gaze forward."
+    },
+    {
+      "id": 44,
+      "english_name": "Warrior One",
+      "sanskrit_name_adapted": "Virabhadrasana One",
+      "sanskrit_name": "Vīrabhadrāsana I",
+      "difficulty": "Beginner",
+      "simplified_description": "Step one foot back, turn it out slightly. Bend front knee to 90 degrees. Lift arms overhead, palms facing or together. Sink hips lower. Gaze forward."
+    },
+    {
+      "id": 46,
+      "english_name": "Warrior Three",
+      "sanskrit_name_adapted": "Virabhadrasana Three",
+      "sanskrit_name": "Vīrabhadrāsana III",
+      "difficulty": "Intermediate",
+      "simplified_description": "From standing, shift weight to one leg. Lift other leg back, parallel to ground. Extend arms forward or out to sides. Balance. Gaze down or forward."
+    },
+    {
+      "id": 45,
+      "english_name": "Warrior Two",
+      "sanskrit_name_adapted": "Virabhadrasana Two",
+      "sanskrit_name": "Vīrabhadrāsana II",
+      "difficulty": "Beginner",
+      "simplified_description": "Step one foot back, turn it out slightly. Bend front knee to 90 degrees. Extend arms parallel to floor. Sink hips lower. Gaze over front hand."
+    },
+    {
+      "id": 47,
+      "english_name": "Wheel",
+      "sanskrit_name_adapted": "Urdhva Dhanurasana",
+      "sanskrit_name": "Ūrdhva Dhanurāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "Lie on back, bend knees, place feet hip-width apart near buttocks. Place hands by ears, fingers towards shoulders. Press into hands and feet to lift hips and chest up into arch. Gaze up."
+    },
+    {
+      "id": 48,
+      "english_name": "Wild Thing",
+      "sanskrit_name_adapted": "Camatkarasana",
+      "sanskrit_name": "Camatkārāsana",
+      "difficulty": "Advanced",
+      "simplified_description": "From Downward Dog, lift one leg high. Shift weight forward, open hips to side. Place hand on mat beside front foot, lift other arm up. Arch back slightly. Gaze up."
+    }
+  ]
