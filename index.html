@@ -26,16 +26,16 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Simon Schubert">
     
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1.0">
 </head>
 <body>
     <header>
-        <h1>YogaBase - Online Yoga Sessions and Poses</h1>
-        <p class="tagline">Open-source platform for all yoga enthusiasts</p>
+        <h1>Start Your Yoga Journey</h1>
+        <p class="tagline">Choose from our collection of guided yoga sessions designed for all levels. Each session combines carefully selected poses for maximum benefit.</p>
     </header>
 
     <main>
-        <h2 class="section-title">Start Session</h2>
+        <h2 class="section-title">Yoga Sessions</h2>
         <a href="https://github.com/SimonSchubert/YogaBase" class="github-link" title="View on GitHub" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.83-.26.83-.58v-2.04c-3.34.72-4.03-1.6-4.03-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.08-.72.08-.72 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.48 1 .1-.77.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.3.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.33 3.3 1.23.96-.26 1.98-.4 3-.4 1.02 0 2.04.14 3 .4 2.28-1.56 3.28-1.23 3.28-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.92 1.24 3.22 0 4.6-2.8 5.63-5.48 5.92.42.36.8 1.1.8 2.2v3.26c0 .32.22.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
@@ -312,21 +312,15 @@
                 stats.classList.add('category-stats');
                 stats.textContent = `${category.poses.length} poses`;
                 
-                // Add start button
-                const startButton = document.createElement('button');
-                startButton.classList.add('start-session-btn');
-                startButton.textContent = 'Start Session';
-                
                 // Assemble card
                 categoryCard.appendChild(difficultyBadge);  // Add the difficulty badge
                 categoryCard.appendChild(title);
                 categoryCard.appendChild(description);
                 categoryCard.appendChild(posesPreview);
                 categoryCard.appendChild(stats);
-                categoryCard.appendChild(startButton);
                 
                 // Add click event to start exercise with this category
-                startButton.addEventListener('click', () => {
+                categoryCard.addEventListener('click', () => {
                     openExercise(category);
                 });
                 
