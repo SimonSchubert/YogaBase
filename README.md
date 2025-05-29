@@ -1,5 +1,6 @@
 # YogaBase
-https://simonschubert.github.io/YogaBase/
+
+[![Web](https://raw.githubusercontent.com/SimonSchubert/YogaBase/main/web_badge.png)](https://simonschubert.github.io/YogaBase)
 
 A web application for exploring and practicing yoga poses with guided sessions.
 
