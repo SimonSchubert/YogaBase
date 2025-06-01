@@ -26,12 +26,16 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Simon Schubert">
     
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="styles.css?v=1.0">
 </head>
 <body>
-    <header>
-        <h1>Start Your Yoga Journey</h1>
-        <p class="tagline">Choose from our collection of guided yoga sessions designed for all levels. Each session combines carefully selected poses for maximum benefit.</p>
+    <header class="mdc-card">
+        <div class="mdc-card__primary-action">
+            <h1 class="mdc-typography--headline4">Start Your Yoga Journey</h1>
+            <p class="tagline mdc-typography--body1">Choose from our collection of guided yoga sessions designed for all levels. Each session combines carefully selected poses for maximum benefit.</p>
+        </div>
     </header>
 
     <main>
@@ -142,5 +146,8 @@
 }
 </script>
     <script src="script.js" defer></script>
+    <script>
+      mdc.autoInit();
+    </script>
 </body>
 </html>

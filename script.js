@@ -119,15 +119,23 @@ function displayCategories(categories) {
   });
   sortedCategories.forEach(category => {
     const categoryCard = document.createElement('div');
-    categoryCard.classList.add('category-card');
+    categoryCard.classList.add('mdc-card', 'mdc-card--outlined', 'category-card');
+
+    const primaryAction = document.createElement('div');
+    primaryAction.classList.add('mdc-card__primary-action');
+
     const difficultyBadge = document.createElement('div');
     difficultyBadge.classList.add('difficulty-badge', `difficulty-${category.difficulty.toLowerCase()}`);
     difficultyBadge.textContent = category.difficulty;
+
     const title = document.createElement('h3');
+    title.classList.add('mdc-typography--headline6');
     title.textContent = category.category_name;
+
     const description = document.createElement('div');
-    description.classList.add('category-description');
+    description.classList.add('category-description', 'mdc-typography--body2');
     description.textContent = category.category_description || 'No description available';
+
     const posesPreview = document.createElement('div');
     posesPreview.classList.add('category-poses-preview');
     const maxThumbnails = Math.min(5, category.poses.length);
@@ -145,14 +153,18 @@ function displayCategories(categories) {
     const stats = document.createElement('div');
     stats.classList.add('category-stats');
     stats.textContent = `${category.poses.length} poses`;
-    categoryCard.appendChild(difficultyBadge);
-    categoryCard.appendChild(title);
-    categoryCard.appendChild(description);
-    categoryCard.appendChild(posesPreview);
-    categoryCard.appendChild(stats);
+
+    primaryAction.appendChild(difficultyBadge);
+    primaryAction.appendChild(title);
+    primaryAction.appendChild(description);
+    primaryAction.appendChild(posesPreview);
+    primaryAction.appendChild(stats);
+
+    categoryCard.appendChild(primaryAction);
     categoryCard.setAttribute('tabindex', '0');
-    categoryCard.addEventListener('click', () => {
-      openExercise(category);
+
+    primaryAction.addEventListener('click', () => {
+        openExercise(category);
     });
     categoryCard.addEventListener('keydown', function(event) {
       if (event.key === 'Enter' || event.key === ' ') {
@@ -345,13 +357,41 @@ function displayPoses(poses) {
   });
   sortedPoses.forEach(pose => {
     const poseCard = document.createElement('div');
-    poseCard.classList.add('pose-card');
-    poseCard.innerHTML = `
-            <div class="difficulty-badge difficulty-${pose.difficulty.toLowerCase()}">${pose.difficulty}</div>
-            <img src="${pose.url_svg}" alt="${pose.english_name}" loading="lazy" width="200" height="200">
-            <h2>${pose.english_name}</h2>
-            <p><strong>Benefits:</strong> ${pose.pose_benefits}</p>
-        `;
+    poseCard.classList.add('mdc-card', 'mdc-card--outlined', 'pose-card');
+
+    const cardMedia = document.createElement('div');
+    cardMedia.classList.add('mdc-card__media', 'mdc-card__media--square');
+    const img = document.createElement('img');
+    img.src = pose.url_svg;
+    img.alt = pose.english_name;
+    img.loading = 'lazy';
+    img.width = 200;
+    img.height = 200;
+    img.style.objectFit = 'cover'; // Ensure the image covers the media area
+    cardMedia.appendChild(img);
+
+    const cardPrimary = document.createElement('div');
+    cardPrimary.classList.add('mdc-card__primary');
+
+    const difficultyBadge = document.createElement('div');
+    difficultyBadge.classList.add('difficulty-badge', `difficulty-${pose.difficulty.toLowerCase()}`);
+    difficultyBadge.textContent = pose.difficulty;
+
+    const poseName = document.createElement('h2');
+    poseName.classList.add('mdc-typography--headline6');
+    poseName.textContent = pose.english_name;
+
+    const benefits = document.createElement('p');
+    benefits.classList.add('mdc-typography--body2');
+    benefits.innerHTML = `<strong>Benefits:</strong> ${pose.pose_benefits}`;
+
+    cardPrimary.appendChild(difficultyBadge);
+    cardPrimary.appendChild(poseName);
+    cardPrimary.appendChild(benefits);
+
+    poseCard.appendChild(cardMedia);
+    poseCard.appendChild(cardPrimary);
+
     posesContainer.appendChild(poseCard);
   });
 }
