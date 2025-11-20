@@ -13,6 +13,7 @@ let appState = {
   completedExercises: [],
   streak: 0,
   lastCompletedDate: null,
+  totalPoses: 0,
 };
 
 const poseDurations = {
@@ -207,7 +208,9 @@ function openExercise(category) {
   updateExerciseStats(category.poses);
   const currentPose = category.poses[0];
   document.getElementById('current-pose-img').src = currentPose.url_svg;
+  document.getElementById('current-pose-img').style.display = 'inline-block';
   document.getElementById('current-pose-name').textContent = currentPose.english_name;
+  document.getElementById('current-pose-name').classList.remove('celebration');
   document.querySelector('.current-pose').style.display = 'none';
   history.pushState({
     action: 'openExercise'
@@ -242,6 +245,7 @@ function startExercise() {
     }
   });
   appState.currentPoseIndex = 0;
+  appState.totalPoses = categoryPoses.length;
   startPoseTimer(categoryPoses);
 }
 
@@ -252,7 +256,9 @@ function startPoseTimer(poses) {
   }
   const currentPose = poses[appState.currentPoseIndex];
   document.getElementById('current-pose-img').src = currentPose.url_svg;
+  document.getElementById('current-pose-img').style.display = 'inline-block';
   document.getElementById('current-pose-name').textContent = currentPose.english_name;
+  document.getElementById('current-pose-name').classList.remove('celebration');
   const miniPoses = document.querySelectorAll('.mini-pose');
   miniPoses.forEach((pose, index) => {
     if (index === appState.currentPoseIndex) {
@@ -265,13 +271,16 @@ function startPoseTimer(poses) {
     speakPoseDescription(currentPose.pose_description);
   }
   appState.timeRemaining = currentPose.base_time * poseDurations[appState.selectedDifficulty];
+  const initialTime = appState.timeRemaining;
   updateTimerDisplay();
-  const progressPercent = (appState.currentPoseIndex / poses.length) * 100;
+  const progressPercent = (appState.currentPoseIndex + (initialTime - appState.timeRemaining) / initialTime) / poses.length * 100;
   document.getElementById('progress-bar').style.width = `${progressPercent}%`;
   appState.timerInterval = setInterval(() => {
     if (appState.exercisePaused) return;
     appState.timeRemaining--;
     updateTimerDisplay();
+    const currentProgressPercent = (appState.currentPoseIndex + (initialTime - appState.timeRemaining) / initialTime) / poses.length * 100;
+    document.getElementById('progress-bar').style.width = `${currentProgressPercent}%`;
     if (appState.timeRemaining <= 0) {
       clearInterval(appState.timerInterval);
       appState.currentPoseIndex++;
@@ -284,9 +293,9 @@ function updateTimerDisplay() {
   const minutes = Math.max(0, Math.floor(appState.timeRemaining / 60));
   const seconds = Math.max(0, (appState.timeRemaining % 60).toFixed(0));
   document.getElementById('timer').textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-  if (appState.timeRemaining <= 5) {
+  if (appState.timeRemaining <= 5 && appState.currentPoseIndex < appState.totalPoses - 1) {
     document.getElementById('timer-label').textContent = 'Get ready for next pose...';
-  } else {
+  } else if (appState.timeRemaining > 5) {
     document.getElementById('timer-label').textContent = 'Hold pose';
   }
 }
@@ -305,7 +314,9 @@ function togglePause() {
 
 function finishExercise() {
   document.getElementById('current-pose-img').src = '';
-  document.getElementById('current-pose-name').textContent = 'Exercise Completed!';
+  document.getElementById('current-pose-img').style.display = 'none';
+  document.getElementById('current-pose-name').textContent = '🎉 Great job! Exercise Completed! 🎉';
+  document.getElementById('current-pose-name').classList.add('celebration');
   document.getElementById('timer').textContent = '00:00';
   document.getElementById('timer-label').textContent = 'Completed';
   document.getElementById('progress-bar').style.width = '100%';

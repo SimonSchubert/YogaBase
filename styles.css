@@ -522,6 +522,14 @@ footer {
     color: #4CAF50;
 }
 
-.category-card {
-    position: relative;
+.celebration {
+    font-size: 1.5em;
+    color: #4CAF50;
+    animation: celebrate 1s ease-in-out;
+}
+
+@keyframes celebrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
