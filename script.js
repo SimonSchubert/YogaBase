@@ -9,7 +9,11 @@ let appState = {
   exerciseStarted: false,
   exercisePaused: false,
   voiceEnabled: true,
-  currentAudio: null
+  currentAudio: null,
+  completedExercises: [],
+  streak: 0,
+  lastCompletedDate: null,
+  totalPoses: 0,
 };
 
 const poseDurations = {
@@ -104,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     soundOffIcon.style.display = 'block';
   }
   document.getElementById('current-pose-img').loading = 'lazy';
+  loadProgress();
 });
 
 function displayCategories(categories) {
@@ -145,6 +150,14 @@ function displayCategories(categories) {
     const stats = document.createElement('div');
     stats.classList.add('category-stats');
     stats.textContent = `${category.poses.length} poses`;
+
+    if (appState.completedExercises.includes(category.id)) {
+      const completedIcon = document.createElement('div');
+      completedIcon.classList.add('completed-icon');
+      completedIcon.textContent = '✔';
+      categoryCard.appendChild(completedIcon);
+    }
+
     categoryCard.appendChild(difficultyBadge);
     categoryCard.appendChild(title);
     categoryCard.appendChild(description);
@@ -195,7 +208,9 @@ function openExercise(category) {
   updateExerciseStats(category.poses);
   const currentPose = category.poses[0];
   document.getElementById('current-pose-img').src = currentPose.url_svg;
+  document.getElementById('current-pose-img').style.display = 'inline-block';
   document.getElementById('current-pose-name').textContent = currentPose.english_name;
+  document.getElementById('current-pose-name').classList.remove('celebration');
   document.querySelector('.current-pose').style.display = 'none';
   history.pushState({
     action: 'openExercise'
@@ -230,6 +245,7 @@ function startExercise() {
     }
   });
   appState.currentPoseIndex = 0;
+  appState.totalPoses = categoryPoses.length;
   startPoseTimer(categoryPoses);
 }
 
@@ -240,7 +256,9 @@ function startPoseTimer(poses) {
   }
   const currentPose = poses[appState.currentPoseIndex];
   document.getElementById('current-pose-img').src = currentPose.url_svg;
+  document.getElementById('current-pose-img').style.display = 'inline-block';
   document.getElementById('current-pose-name').textContent = currentPose.english_name;
+  document.getElementById('current-pose-name').classList.remove('celebration');
   const miniPoses = document.querySelectorAll('.mini-pose');
   miniPoses.forEach((pose, index) => {
     if (index === appState.currentPoseIndex) {
@@ -253,13 +271,16 @@ function startPoseTimer(poses) {
     speakPoseDescription(currentPose.pose_description);
   }
   appState.timeRemaining = currentPose.base_time * poseDurations[appState.selectedDifficulty];
+  const initialTime = appState.timeRemaining;
   updateTimerDisplay();
-  const progressPercent = (appState.currentPoseIndex / poses.length) * 100;
+  const progressPercent = (appState.currentPoseIndex + (initialTime - appState.timeRemaining) / initialTime) / poses.length * 100;
   document.getElementById('progress-bar').style.width = `${progressPercent}%`;
   appState.timerInterval = setInterval(() => {
     if (appState.exercisePaused) return;
     appState.timeRemaining--;
     updateTimerDisplay();
+    const currentProgressPercent = (appState.currentPoseIndex + (initialTime - appState.timeRemaining) / initialTime) / poses.length * 100;
+    document.getElementById('progress-bar').style.width = `${currentProgressPercent}%`;
     if (appState.timeRemaining <= 0) {
       clearInterval(appState.timerInterval);
       appState.currentPoseIndex++;
@@ -272,9 +293,9 @@ function updateTimerDisplay() {
   const minutes = Math.max(0, Math.floor(appState.timeRemaining / 60));
   const seconds = Math.max(0, (appState.timeRemaining % 60).toFixed(0));
   document.getElementById('timer').textContent = `${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
-  if (appState.timeRemaining <= 5) {
+  if (appState.timeRemaining <= 5 && appState.currentPoseIndex < appState.totalPoses - 1) {
     document.getElementById('timer-label').textContent = 'Get ready for next pose...';
-  } else {
+  } else if (appState.timeRemaining > 5) {
     document.getElementById('timer-label').textContent = 'Hold pose';
   }
 }
@@ -293,7 +314,9 @@ function togglePause() {
 
 function finishExercise() {
   document.getElementById('current-pose-img').src = '';
-  document.getElementById('current-pose-name').textContent = 'Exercise Completed!';
+  document.getElementById('current-pose-img').style.display = 'none';
+  document.getElementById('current-pose-name').textContent = '🎉 Great job! Exercise Completed! 🎉';
+  document.getElementById('current-pose-name').classList.add('celebration');
   document.getElementById('timer').textContent = '00:00';
   document.getElementById('timer-label').textContent = 'Completed';
   document.getElementById('progress-bar').style.width = '100%';
@@ -304,6 +327,29 @@ function finishExercise() {
   document.querySelector('.current-pose').style.display = 'block';
   document.getElementById('exercise-title').style.display = 'block';
   document.getElementById('exercise-stats').style.display = 'block';
+
+  const today = new Date().toDateString();
+  const lastDate = appState.lastCompletedDate ? new Date(appState.lastCompletedDate).toDateString() : null;
+
+  if (today !== lastDate) {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayDate = yesterday.toDateString();
+
+    if (lastDate === yesterdayDate) {
+      appState.streak++;
+    } else {
+      appState.streak = 1;
+    }
+    appState.lastCompletedDate = new Date().toISOString();
+  }
+
+  if (!appState.completedExercises.includes(appState.currentExercise.id)) {
+    appState.completedExercises.push(appState.currentExercise.id);
+  }
+
+  saveProgress();
+  updateUI();
 }
 
 function closeExercise() {
@@ -381,3 +427,61 @@ const speakPoseDescription = (text) => {
   };
   appState.currentAudio.load();
 };
+
+function saveProgress() {
+  const progress = {
+    completedExercises: appState.completedExercises,
+    streak: appState.streak,
+    lastCompletedDate: appState.lastCompletedDate,
+  };
+  localStorage.setItem('yogaBaseProgress', JSON.stringify(progress));
+}
+
+function loadProgress() {
+  const savedProgress = localStorage.getItem('yogaBaseProgress');
+  if (savedProgress) {
+    try {
+      const progress = JSON.parse(savedProgress);
+      appState.completedExercises = progress.completedExercises || [];
+      appState.streak = progress.streak || 0;
+      appState.lastCompletedDate = progress.lastCompletedDate;
+      updateStreak();
+      updateUI();
+    } catch (error) {
+      console.error('Error parsing yogaBaseProgress from localStorage:', error);
+      localStorage.removeItem('yogaBaseProgress');
+    }
+  }
+}
+
+function updateStreak() {
+  if (!appState.lastCompletedDate) {
+    appState.streak = 0;
+    return;
+  }
+
+  const today = new Date().toDateString();
+  const lastDate = new Date(appState.lastCompletedDate).toDateString();
+
+  if (today === lastDate) {
+    // Already completed a session today, streak is maintained.
+    return;
+  }
+
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const yesterdayDate = yesterday.toDateString();
+
+  if (lastDate !== yesterdayDate) {
+    // Last session was not yesterday, reset streak.
+    appState.streak = 0;
+    saveProgress();
+  }
+}
+
+function updateUI() {
+  const streakCount = appState.streak;
+  const streakText = `${streakCount} ${streakCount === 1 ? 'day' : 'days'}`;
+  document.getElementById('streak-count').textContent = streakText;
+  displayCategories(appState.allCategories);
+}

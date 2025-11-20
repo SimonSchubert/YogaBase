@@ -505,3 +505,31 @@ footer {
     font-size: 0.9em;
     text-align: center;
 }
+
+#streaks-container {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.completed-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+.celebration {
+    font-size: 1.5em;
+    color: #4CAF50;
+    animation: celebrate 1s ease-in-out;
+}
+
+@keyframes celebrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

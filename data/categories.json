@@ -21,6 +21,13 @@
     "difficulty": "Beginner"
   },
   {
+    "id": 26,
+    "category_name": "Beginner's Blissful Flow",
+    "category_description": "A comprehensive beginner sequence that flows harmoniously through warm-up, standing strength and balance poses, gentle backbends, forward folds, hip openers, and restorative poses to build a well-rounded foundation.",
+    "poses": [11, 7, 8, 15, 26, 43, 23, 12, 44, 45, 42, 9, 41, 43, 4, 35, 5, 10, 11],
+    "difficulty": "Beginner"
+  },
+  {
     "id": 4,
     "category_name": "Balanced Foundations",
     "category_description": "A beginner sequence to build balance and strength with standing and seated poses.",
