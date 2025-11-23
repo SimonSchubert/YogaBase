@@ -15,6 +15,8 @@ let appState = {
   lastCompletedDate: null,
   totalPoses: 0,
   sideSwitched: false,
+  introTimeRemaining: 0,
+  introInterval: null,
 };
 
 const poseDurations = {
@@ -65,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('start-btn').addEventListener('click', startExercise);
   document.getElementById('pause-btn').addEventListener('click', togglePause);
   document.getElementById('session-back-btn').addEventListener('click', closeExercise);
+  document.getElementById('skip-btn').addEventListener('click', skipIntro);
   const difficultyBtns = document.querySelectorAll('.difficulty-btn');
   difficultyBtns.forEach(btn => {
     btn.addEventListener('click', function() {
@@ -190,6 +193,7 @@ function openExercise(category) {
   document.getElementById('start-btn').textContent = 'Start Exercise';
   document.getElementById('start-btn').style.display = 'block';
   document.getElementById('pause-btn').style.display = 'none';
+  document.getElementById('skip-btn').style.display = 'none';
   document.getElementById('difficulty-selector').style.display = 'block';
   clearInterval(appState.timerInterval);
   document.getElementById('timer').textContent = '00:00';
@@ -225,9 +229,53 @@ window.addEventListener('popstate', (event) => {
 });
 
 function startExercise() {
-  if (appState.exerciseStarted) {
-    return;
-  }
+  startIntro();
+}
+
+function startIntro() {
+  const startSounds = [
+    'data/audio/start_01.mp3',
+    'data/audio/start_02.mp3',
+    'data/audio/start_03.mp3'
+  ];
+  const randomSound = startSounds[Math.floor(Math.random() * startSounds.length)];
+  const introAudio = new Audio(randomSound);
+  introAudio.play();
+  appState.introTimeRemaining = 10;
+  document.getElementById('timer').textContent = `00:${appState.introTimeRemaining.toString().padStart(2,'0')}`;
+  document.getElementById('timer-label').textContent = 'Get ready...';
+  document.getElementById('skip-btn').style.display = 'inline-block';
+  document.getElementById('current-pose-img').src = 'images/poses/5.svg';
+  document.getElementById('current-pose-img').style.display = 'inline-block';
+  document.getElementById('current-pose-name').textContent = 'Get ready for your session!';
+  document.querySelector('.current-pose').style.display = 'block';
+  document.getElementById('exercise-title').style.display = 'none';
+  document.getElementById('exercise-description').style.display = 'none';
+  document.getElementById('exercise-stats').style.display = 'none';
+  document.getElementById('difficulty-selector').style.display = 'none';
+  appState.introInterval = setInterval(() => {
+    appState.introTimeRemaining--;
+    document.getElementById('timer').textContent = `00:${appState.introTimeRemaining.toString().padStart(2,'0')}`;
+    if (appState.introTimeRemaining <= 0) {
+      clearInterval(appState.introInterval);
+      hideSkipButton();
+      startActualExercise();
+    }
+  }, 1000);
+}
+
+function skipIntro() {
+  clearInterval(appState.introInterval);
+  appState.introTimeRemaining = 0;
+  hideSkipButton();
+  startActualExercise();
+}
+
+function hideSkipButton() {
+  document.getElementById('skip-btn').style.display = 'none';
+}
+
+function startActualExercise() {
   appState.exerciseStarted = true;
   appState.exercisePaused = false;
   document.getElementById('pause-btn').textContent = 'Pause';
@@ -370,6 +418,7 @@ function closeExercise() {
   document.getElementById('session-fullscreen').style.display = 'none';
   document.body.style.overflow = '';
   clearInterval(appState.timerInterval);
+  clearInterval(appState.introInterval);
   appState.exerciseStarted = false;
   document.getElementById('exercise-title').style.display = 'block';
   document.getElementById('exercise-description').style.display = 'block';
