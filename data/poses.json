@@ -3,528 +3,576 @@
     "id": 1,
     "english_name": "Boat",
     "sanskrit_name_adapted": "Navasana",
-    "sanskrit_name": "Nāvāsana",
-    "translation_name": "nāva = boat, āsana = posture",
+    "sanskrit_name": "N\u0101v\u0101sana",
+    "translation_name": "n\u0101va = boat, \u0101sana = posture",
     "pose_description": "Sit with legs extended. Exhale, lift legs to 45 degrees, lean back slightly. Extend arms forward, palms facing. Balance on sit bones, engage core. Gaze at toes, breathe.",
     "pose_benefits": "Strengthens the abdomen, hip flexors, and spine. Stimulates the kidneys, thyroid and prostate glands, and intestines. Helps relieve stress. Improves digestion.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 45,
+    "has_two_sides": false
   },
   {
     "id": 3,
     "english_name": "Bow",
     "sanskrit_name_adapted": "Dhanurasana",
-    "sanskrit_name": "Dhanurāsana",
-    "translation_name": "dhanur = bow, āsana = posture",
+    "sanskrit_name": "Dhanur\u0101sana",
+    "translation_name": "dhanur = bow, \u0101sana = posture",
     "pose_description": "Lie on stomach. Bend knees, grab ankles. Inhale, lift chest and thighs, press feet into hands. Gaze forward, breathe.",
     "pose_benefits": "Stretches the entire front of the body, ankles, thighs and groins, abdomen and chest, and throat, and deep hip flexors (psoas). Strengthens the back muscles. Improves posture. Stimulates the organs of the abdomen and neck.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 45,
+    "has_two_sides": false
   },
   {
     "id": 4,
     "english_name": "Bridge",
     "sanskrit_name_adapted": "Setu Bandha Sarvangasana",
-    "sanskrit_name": "Setu Bandha Sarvāṅgāsana",
-    "translation_name": "setu = bridge, bandha = lock, sarva = all, āṅga = limb, āsana = posture",
+    "sanskrit_name": "Setu Bandha Sarv\u0101\u1e45g\u0101sana",
+    "translation_name": "setu = bridge, bandha = lock, sarva = all, \u0101\u1e45ga = limb, \u0101sana = posture",
     "pose_description": "Lie on back, knees bent, feet hip-width. Inhale, lift hips, clasp hands under back. Roll shoulders under, lift chest. Gaze up, breathe.",
     "pose_benefits": "Stretches the chest, neck, and spine. Stimulates abdominal organs, lungs, and thyroids. Rejuvenates tired legs. Improves digestion. Helps relieve the symptoms of menopause. Relieves menstrual discomfort when done supported. Reduces anxiety, fatigue, backache, headache, and insomnia. Therapeutic for asthma, high blood pressure, osteoporosis, and sinusitis.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 5,
     "english_name": "Butterfly",
     "sanskrit_name_adapted": "Baddha Konasana",
-    "sanskrit_name": "Baddha Koṇāsana",
-    "translation_name": "baddha = bound, koṇa = angle, āsana = posture",
+    "sanskrit_name": "Baddha Ko\u1e47\u0101sana",
+    "translation_name": "baddha = bound, ko\u1e47a = angle, \u0101sana = posture",
     "pose_description": "Sit with soles together, knees out. Hold feet, sit tall. Relax shoulders, breathe deeply.",
     "pose_benefits": "Opens the hips and groins. Stretches the shoulders, rib cage and back. Stimulates the abdominal organs, lungs and heart.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 6,
     "english_name": "Camel",
     "sanskrit_name_adapted": "Ustrasana",
-    "sanskrit_name": "Uṣṭrāsana",
-    "translation_name": "uṣṭra = camel, āsana = posture",
+    "sanskrit_name": "U\u1e63\u1e6dr\u0101sana",
+    "translation_name": "u\u1e63\u1e6dra = camel, \u0101sana = posture",
     "pose_description": "Kneel, hands on lower back. Inhale, lift chest, reach for heels if comfortable. Keep neck neutral, gaze forward, breathe.",
     "pose_benefits": "Stretches the entire front of the body, the ankles, thighs and groins, abdomen and chest, and throat. Stretches the deep hip flexors (psoas). Strengthens back muscles. Improves posture. Stimulates the organs of the abdomen and neck.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 45,
+    "has_two_sides": false
   },
   {
     "id": 7,
     "english_name": "Cat",
     "sanskrit_name_adapted": "Marjaryasana",
-    "sanskrit_name": "Marjaryāsana",
-    "translation_name": "marjarya = cat, āsana = posture",
+    "sanskrit_name": "Marjary\u0101sana",
+    "translation_name": "marjarya = cat, \u0101sana = posture",
     "pose_description": "On hands and knees. Exhale, round spine up, tuck chin. Engage core, gaze at belly, breathe.",
     "pose_benefits": "Relieves the spine and neck. Energizes the body.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 9,
     "english_name": "Chair",
     "sanskrit_name_adapted": "Utkatasana",
-    "sanskrit_name": "Utkaṭāsana",
-    "translation_name": "utkaṭa = fierce, āsana = posture",
+    "sanskrit_name": "Utka\u1e6d\u0101sana",
+    "translation_name": "utka\u1e6da = fierce, \u0101sana = posture",
     "pose_description": "Stand, feet together. Inhale, bend knees as if sitting, lift arms overhead. Weight in heels, gaze forward, breathe.",
     "pose_benefits": "Strengthens the ankles, thighs, calves, and spine. Stretches shoulders and chest. Stimulates the abdominal organs, diaphragm, and heart. Reduces flat feet. Energizes the entire body.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 10,
     "english_name": "Child's Pose",
     "sanskrit_name_adapted": "Balasana",
-    "sanskrit_name": "Balāsana",
-    "translation_name": "bala = child, āsana = posture",
+    "sanskrit_name": "Bal\u0101sana",
+    "translation_name": "bala = child, \u0101sana = posture",
     "pose_description": "Kneel, toes together, knees apart. Exhale, fold forward, arms extended. Forehead on mat, relax, breathe.",
     "pose_benefits": "Gently stretches the hips, thighs, and ankles. Calms the brain and helps relieve stress and fatigue. Relieves back and neck pain when done with head and torso supported.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 11,
     "english_name": "Corpse",
     "sanskrit_name_adapted": "Sivasana",
-    "sanskrit_name": "Śavāsana",
-    "translation_name": "śava = corpse, āsana = posture",
+    "sanskrit_name": "\u015aav\u0101sana",
+    "translation_name": "\u015bava = corpse, \u0101sana = posture",
     "pose_description": "Lie on back, legs extended, arms by sides, palms up. Close eyes, relax completely, breathe deeply.",
     "pose_benefits": "Calms the brain and helps relieve stress and mild depression. Relaxes the body. Reduces headache, fatigue, and insomnia. Helps to lower blood pressure.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 8,
     "english_name": "Cow",
     "sanskrit_name_adapted": "Bitilasana",
-    "sanskrit_name": "Bitilāsana",
-    "translation_name": "bitil = cow, āsana = posture",
+    "sanskrit_name": "Bitil\u0101sana",
+    "translation_name": "bitil = cow, \u0101sana = posture",
     "pose_description": "On hands and knees. Inhale, arch spine down, lift tailbone and chest. Gaze up, breathe.",
     "pose_benefits": "Removes fatigue. Improves breathing and the circulation of blood to the brain. Rejuvenates the entire body.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 12,
     "english_name": "Crescent Lunge",
     "sanskrit_name_adapted": "Alanasana",
-    "sanskrit_name": "Ashta Chandrāsana",
-    "translation_name": "ashta = side, chandra = moon, āsana = posture",
+    "sanskrit_name": "Ashta Chandr\u0101sana",
+    "translation_name": "ashta = side, chandra = moon, \u0101sana = posture",
     "pose_description": "Step one foot forward, lunge. Back knee down or lifted. Inhale, lift arms overhead. Sink hips, gaze forward, breathe.",
     "pose_benefits": "Stretches the rib cage, arms and torso. Tones the oblique muscles.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 120,
+    "has_two_sides": true
   },
   {
     "id": 39,
     "english_name": "Crescent Moon",
     "sanskrit_name_adapted": "Ashta Chandrasana",
-    "sanskrit_name": "Ashta Chandrāsana",
-    "translation_name": "ashta = side, chandra = moon, āsana = posture",
+    "sanskrit_name": "Ashta Chandr\u0101sana",
+    "translation_name": "ashta = side, chandra = moon, \u0101sana = posture",
     "pose_description": "Stand, clasp hands overhead. Inhale, lean to one side, stretch opposite side. Gaze up, breathe.",
     "pose_benefits": "Stretches the rib cage, arms and torso. Tones the oblique muscles.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 13,
     "english_name": "Crow",
     "sanskrit_name_adapted": "Bakasana",
-    "sanskrit_name": "Bakāsana",
-    "translation_name": "baka = crane, āsana = posture",
+    "sanskrit_name": "Bak\u0101sana",
+    "translation_name": "baka = crane, \u0101sana = posture",
     "pose_description": "Squat, hands on mat, shoulder-width. Knees on upper arms. Exhale, shift forward, lift feet. Balance, gaze forward, breathe.",
     "pose_benefits": "Strengthens arms and wrists. Stretches the upper back. Strengthens the abdominal muscles. Opens the groin. Tones the abdominal organs.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 30,
+    "has_two_sides": false
   },
   {
     "id": 14,
     "english_name": "Dolphin",
     "sanskrit_name_adapted": "Ardha Pincha Mayurasana",
-    "sanskrit_name": "Pīñcha Mayūrāsana",
-    "translation_name": "pīñcha = feather, mayūra = peacock, āsana = posture",
+    "sanskrit_name": "P\u012b\u00f1cha May\u016br\u0101sana",
+    "translation_name": "p\u012b\u00f1cha = feather, may\u016bra = peacock, \u0101sana = posture",
     "pose_description": "From Downward Dog, lower to forearms, elbows under shoulders. Lift hips, press heels down. Engage core, gaze between hands, breathe.",
     "pose_benefits": "Calms the brain and helps relieve stress and mild depression. Energizes the body. Stretches the shoulders, hamstrings, calves, arches, and hands. Strengthens the arms and legs. Helps relieve the symptoms of menopause. Relieves menstrual discomfort when done with the head supported. Helps prevent osteoporosis. Improves digestion. Relieves headache, insomnia, back pain, and fatigue. Therapeutic for high blood pressure, asthma, flat feet, sciatica, and sinusitis. Warms up the ankles and the toes.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 45,
+    "has_two_sides": false
   },
   {
     "id": 15,
     "english_name": "Downward-Facing Dog",
     "sanskrit_name_adapted": "Adho Mukha Svanasana",
-    "sanskrit_name": "Parivṛtta Adho Mukha Śvānāsana",
-    "translation_name": "parivṛtta = revolved, adho = downward, mukha = facing, śvāna = dog, āsana = posture",
+    "sanskrit_name": "Pariv\u1e5btta Adho Mukha \u015av\u0101n\u0101sana",
+    "translation_name": "pariv\u1e5btta = revolved, adho = downward, mukha = facing, \u015bv\u0101na = dog, \u0101sana = posture",
     "pose_description": "Hands and knees. Exhale, lift hips up and back. Straighten legs, press heels down. Lengthen spine, gaze between legs, breathe.",
     "pose_benefits": "Calms the brain and helps relieve stress and mild depression. Energizes the body. Stretches the shoulders, neck, hamstrings, calves, arches, and hands. Strengthens the arms and legs. Helps relieve the symptoms of menopause. Relieves menstrual discomfort when done with the head supported. Helps prevent osteoporosis. Improves digestion. Relieves headache, insomnia, back pain, and fatigue. Therapeutic for high blood pressure, asthma, flat feet, sciatica, and sinusitis.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 16,
     "english_name": "Eagle",
     "sanskrit_name_adapted": "Garudasana",
-    "sanskrit_name": "Garuḍāsana",
-    "translation_name": "garuḍa = eagle, āsana = posture",
+    "sanskrit_name": "Garu\u1e0d\u0101sana",
+    "translation_name": "garu\u1e0da = eagle, \u0101sana = posture",
     "pose_description": "Stand, cross right leg over left, hook foot behind calf. Cross left arm over right, press palms. Lift elbows, gaze forward, breathe.",
     "pose_benefits": "Strengthens and stretches the ankles and calves. Stretches the thighs, hips, shoulders, and upper back. Improves concentration. Improves sense of balance.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 17,
     "english_name": "Extended Hand to Toe",
     "sanskrit_name_adapted": "Utthita Hasta Padangusthasana",
-    "sanskrit_name": "Utthita Hasta Pādāṅguṣṭhāsana",
-    "translation_name": "utthita = extended, hasta = hand, pādāṅguṣṭha = big toe, āsana = posture",
+    "sanskrit_name": "Utthita Hasta P\u0101d\u0101\u1e45gu\u1e63\u1e6dh\u0101sana",
+    "translation_name": "utthita = extended, hasta = hand, p\u0101d\u0101\u1e45gu\u1e63\u1e6dha = big toe, \u0101sana = posture",
     "pose_description": "Stand, lift right leg, hold big toe with right hand. Extend leg forward, hips squared. Gaze forward, breathe.",
     "pose_benefits": "Opens the hips and groins. Stretches the hamstrings, IT bands and legs. Improves balance.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 18,
     "english_name": "Extended Side Angle",
     "sanskrit_name_adapted": "Utthita Parsvakonasana",
-    "sanskrit_name": "Utthita Pārśvakoṇāsana",
-    "translation_name": "utthita = extended, pārśva = side, koṇa = angle, āsana = posture",
+    "sanskrit_name": "Utthita P\u0101r\u015bvako\u1e47\u0101sana",
+    "translation_name": "utthita = extended, p\u0101r\u015bva = side, ko\u1e47a = angle, \u0101sana = posture",
     "pose_description": "From Warrior II, bend front knee deeper. Reach front arm overhead, back hand on leg or floor. Open chest, gaze up, breathe.",
     "pose_benefits": "Strengthens and stretches the legs, knees, and ankles. Stretches the groin, spine, waist, chest, lungs, and shoulders. Stimulates abdominal organs. Increases stamina.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 19,
     "english_name": "Forearm Stand",
     "sanskrit_name_adapted": "Pincha Mayurasana",
-    "sanskrit_name": "Pīñcha Mayūrāsana",
-    "translation_name": "pīñcha = feather, mayūra = peacock, āsana = posture",
+    "sanskrit_name": "P\u012b\u00f1cha May\u016br\u0101sana",
+    "translation_name": "p\u012b\u00f1cha = feather, may\u016bra = peacock, \u0101sana = posture",
     "pose_description": "From Dolphin, walk feet closer. Exhale, lift legs one at a time, balance on forearms. Engage core, gaze forward, breathe.",
     "pose_benefits": "Strengthens arms and shoulders. Improves focus and balance. Stretches the upper and lower back. Strengthens the abdominal muscles. Tones the abdominal area.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 30,
+    "has_two_sides": false
   },
   {
     "id": 20,
     "english_name": "Forward Bend with Shoulder Opener",
     "sanskrit_name_adapted": "Uttanasana",
-    "sanskrit_name": "Uttānāsana",
-    "translation_name": "uttāna = stretch out, āsana = posture",
+    "sanskrit_name": "Utt\u0101n\u0101sana",
+    "translation_name": "utt\u0101na = stretch out, \u0101sana = posture",
     "pose_description": "Stand, fold forward, interlace hands behind back. Lift arms gently, relax head. Gaze down, breathe.",
     "pose_benefits": "Calms the brain and helps relieve stress and mild depression. Stimulates the liver and kidneys. Stretches the hamstrings, calves, and hips. Strengthens the thighs and knees. Improves digestion. Helps relieve the symptoms of menopause. Reduces fatigue and anxiety. Relieves headache and insomnia. Opens the shoulders.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 45,
+    "has_two_sides": false
   },
   {
     "id": 37,
     "english_name": "Garland Pose",
     "sanskrit_name_adapted": "Malasana",
-    "sanskrit_name": "Mālāsana",
-    "translation_name": "mālā = garland or necklace, āsana = posture",
+    "sanskrit_name": "M\u0101l\u0101sana",
+    "translation_name": "m\u0101l\u0101 = garland or necklace, \u0101sana = posture",
     "pose_description": "Squat, feet together or apart. Elbows inside knees, palms at heart. Push knees out, sink hips, gaze forward, breathe.",
     "pose_benefits": "Stretches the ankles, groins and back torso. Tones the belly.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 45,
+    "has_two_sides": false
   },
   {
     "id": 2,
     "english_name": "Half Boat",
     "sanskrit_name_adapted": "Ardha Navasana",
-    "sanskrit_name": "Ardha Nāvāsana",
-    "translation_name": "ardha = half, nāva = boat, āsana = posture",
+    "sanskrit_name": "Ardha N\u0101v\u0101sana",
+    "translation_name": "ardha = half, n\u0101va = boat, \u0101sana = posture",
     "pose_description": "Sit, knees bent, feet lifted. Lean back slightly, hold behind thighs or extend arms. Balance, engage core, gaze forward, breathe.",
     "pose_benefits": "Strengthens the abdomen, hip flexors and spine. Stimulates the kidneys, thyroid, prostate glands and intestines. Helps relieve stress. Improves digestion.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 45,
+    "has_two_sides": false
   },
   {
     "id": 32,
     "english_name": "Half Lord of the Fishes",
     "sanskrit_name_adapted": "Ardha Matsyendrasana",
-    "sanskrit_name": "Ardhā Matsyendrāsana",
+    "sanskrit_name": "Ardh\u0101 Matsyendr\u0101sana",
     "translation_name": "ardha = half, matsya = fish, indra = king",
     "pose_description": "Sit, cross right knee over left, twist right. Left elbow outside right knee, right hand behind. Gaze over shoulder, breathe.",
     "pose_benefits": "Stretches the shoulders, the chest, the thighs, the groins, and the abdomen. Strengthens the legs and the ankles. Improves balance.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 21,
     "english_name": "Half-Moon",
     "sanskrit_name_adapted": "Ardha Chandrasana",
-    "sanskrit_name": "Ardha Chandrāsana",
-    "translation_name": "ardha = half, chandra = moon, āsana = posture",
+    "sanskrit_name": "Ardha Chandr\u0101sana",
+    "translation_name": "ardha = half, chandra = moon, \u0101sana = posture",
     "pose_description": "From Warrior III, hand on floor beside front foot. Lift back leg parallel, extend opposite arm up. Open hips, gaze up or down, breathe.",
     "pose_benefits": "Strengthens the abdomen, ankles, thighs, buttocks and spine. Stretches the groins, hamstrings, calves, shoulders, chest and spine. Improves coordination and sense of balance. Helps relieve stress. Improves digestion.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 22,
     "english_name": "Handstand",
     "sanskrit_name_adapted": "Adho Mukha Vrksasana",
-    "sanskrit_name": "Adho Mukha Vṛkṣāsana",
-    "translation_name": "adho = downward, mukha = facing, vṛkṣa = tree, āsana = posture",
+    "sanskrit_name": "Adho Mukha V\u1e5bk\u1e63\u0101sana",
+    "translation_name": "adho = downward, mukha = facing, v\u1e5bk\u1e63a = tree, \u0101sana = posture",
     "pose_description": "From Downward Dog, walk feet closer. Shift weight, kick legs up, straighten. Engage core, gaze forward, breathe.",
     "pose_benefits": "Strengthens the shoulders, arms and wrists. Stretches the belly. Improves sense of balance. Calms the brain and helps relieve stress and mild depression.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 30,
+    "has_two_sides": false
   },
   {
     "id": 25,
     "english_name": "King Pigeon",
     "sanskrit_name_adapted": "Eka Pada Rajakapotasana",
-    "sanskrit_name": "Eka Pāda Rājakapotāsana",
-    "translation_name": "eka = one, pāda = foot or leg, rāja = king, kapota = pigeon, āsana = posture",
+    "sanskrit_name": "Eka P\u0101da R\u0101jakapot\u0101sana",
+    "translation_name": "eka = one, p\u0101da = foot or leg, r\u0101ja = king, kapota = pigeon, \u0101sana = posture",
     "pose_description": "From Pigeon, bend back knee, grab foot with hand. Lift chest, open heart. Gaze forward, breathe.",
     "pose_benefits": "Stretches the thighs, groins (psoas), abdomen, chest, shoulders and neck. Stimulates the abdominal organs. Opens the shoulders and chest.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 60,
+    "has_two_sides": true
   },
   {
     "id": 31,
     "english_name": "Lotus",
     "sanskrit_name_adapted": "Padmasana",
-    "sanskrit_name": "Padmāsana",
-    "translation_name": "padma = lotus, āsana = posture",
+    "sanskrit_name": "Padm\u0101sana",
+    "translation_name": "padma = lotus, \u0101sana = posture",
     "pose_description": "Sit, place right foot on left thigh, left foot on right. Hands on knees, sit tall, breathe.",
     "pose_benefits": "Opens the hips, groin and stretches the knees, ankles and thighs. Strengthens the back and calms the mind, reduces stress and anxiety. Improves circulation and blood flow in the pelvis.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 45,
+    "has_two_sides": false
   },
   {
     "id": 23,
     "english_name": "Low Lunge",
     "sanskrit_name_adapted": "Anjaneyasana",
-    "sanskrit_name": "Aṅjaneyāsana",
-    "translation_name": "aṅjaneya = praise, āsana = posture",
+    "sanskrit_name": "A\u1e45janey\u0101sana",
+    "translation_name": "a\u1e45janeya = praise, \u0101sana = posture",
     "pose_description": "Step right foot forward, lunge. Lower left knee, hands on thigh or overhead. Sink hips, gaze forward, breathe.",
     "pose_benefits": "Stretches the chest, lungs, neck, belly and groin (psoas). Strengthens the shoulders, arms and back muscles. Strengthens and stretches the thighs, calves and ankles.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 120,
+    "has_two_sides": true
   },
   {
     "id": 24,
     "english_name": "Pigeon",
     "sanskrit_name_adapted": "Supta Kapotasana",
-    "sanskrit_name": "Supta Kapotāsana",
-    "translation_name": "supta = supine, kapota = pigeon, āsana = posture",
+    "sanskrit_name": "Supta Kapot\u0101sana",
+    "translation_name": "supta = supine, kapota = pigeon, \u0101sana = posture",
     "pose_description": "Lie on back, cross right ankle over left knee. Pull left knee to chest. Keep back grounded, gaze up, breathe.",
     "pose_benefits": "Stretches the hamstrings and quads. If the elbow is used to push the thigh, it opens the hips as well.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 26,
     "english_name": "Plank",
     "sanskrit_name_adapted": "Phalakasana",
-    "sanskrit_name": "Phalakāsana",
-    "translation_name": "phalaka = plank, āsana = posture",
+    "sanskrit_name": "Phalak\u0101sana",
+    "translation_name": "phalaka = plank, \u0101sana = posture",
     "pose_description": "Hands and knees, step feet back. Body straight, hands under shoulders. Engage core, gaze down, breathe.",
     "pose_benefits": "Strengthens the arms, wrists, and spine. Tones the abdomen.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 27,
     "english_name": "Plow",
     "sanskrit_name_adapted": "Halasana",
-    "sanskrit_name": "Halāsana",
-    "translation_name": "hala = plow, āsana = posture",
+    "sanskrit_name": "Hal\u0101sana",
+    "translation_name": "hala = plow, \u0101sana = posture",
     "pose_description": "Lie on back. Exhale, lift legs over head, toes to floor behind. Support back or clasp hands. Gaze inward, breathe.",
     "pose_benefits": "Calms the brain. Stimulates the abdominal organs and the thyroid glands. Stretches the shoulders and spine. Helps relieve the symptoms of menopause. Reduces stress and fatigue. Therapeutic for backache, headache, infertility, insomnia, and sinusitis.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 30,
+    "has_two_sides": false
   },
   {
     "id": 28,
     "english_name": "Pyramid",
     "sanskrit_name_adapted": "Parsvottanasana",
-    "sanskrit_name": "Pārśvottānāsana",
-    "translation_name": "pārśva = side, uttāna = stretch out, āsana = posture",
+    "sanskrit_name": "P\u0101r\u015bvott\u0101n\u0101sana",
+    "translation_name": "p\u0101r\u015bva = side, utt\u0101na = stretch out, \u0101sana = posture",
     "pose_description": "Step right foot forward, left back. Hinge at hips, fold over front leg. Hands on floor or blocks. Gaze down, breathe.",
     "pose_benefits": "Calms the brain. Stretches the spine, the shoulders, the hips and the hamstrings. Strengthens the legs. Stimulates the abdominal organs. Improves posture and sense of balance. Improves digestion.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 29,
     "english_name": "Reverse Warrior",
     "sanskrit_name_adapted": "Parsva Virabhadrasana",
-    "sanskrit_name": "Pārśva Vīrabhadrāsana",
-    "translation_name": "pārśva = side, vīrabhadra = warrior, āsana = posture",
+    "sanskrit_name": "P\u0101r\u015bva V\u012brabhadr\u0101sana",
+    "translation_name": "p\u0101r\u015bva = side, v\u012brabhadra = warrior, \u0101sana = posture",
     "pose_description": "From Warrior II, reach front arm overhead and back. Slide back hand down leg. Open chest, gaze up, breathe.",
     "pose_benefits": "Strengthens and stretches the legs, knees, and ankles. Stretches the groin, spine, waist, chest, lungs, and shoulders. Stimulates abdominal organs. Increases stamina. Relieves backaches, especially through second trimester of pregnancy. Therapeutic for carpal tunnel syndrome, flat feet, infertility, osteoporosis, and sciatica.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 30,
     "english_name": "Seated Forward Bend",
     "sanskrit_name_adapted": "Paschimottanasana",
-    "sanskrit_name": "Paśchimottānāsana",
-    "translation_name": "paśchima = back, uttāna = stretch out, āsana = posture",
+    "sanskrit_name": "Pa\u015bchimott\u0101n\u0101sana",
+    "translation_name": "pa\u015bchima = back, utt\u0101na = stretch out, \u0101sana = posture",
     "pose_description": "Sit, legs extended. Inhale, lengthen spine. Exhale, fold forward, reach for feet or shins. Keep spine long, gaze forward, breathe.",
     "pose_benefits": "Calms the brain and helps relieve stress and mild depression. Stretches the spine, shoulders and hamstrings. Stimulates the liver, kidneys, ovaries and uterus. Improves digestion. Helps relieve the symptoms of menopause and menstrual discomfort. Soothes headache and anxiety. Reduces fatigue. Therapeutic for high blood pressure, infertility, insomnia and sinusitis. Traditional texts say that Paschimottanasana increases appetite, reduces obesity and cures diseases.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 45,
+    "has_two_sides": false
   },
   {
     "id": 33,
     "english_name": "Shoulder Stand",
     "sanskrit_name_adapted": "Salamba Sarvangasana",
-    "sanskrit_name": "Sālamba Sarvāṅgāsana",
-    "translation_name": "sa = with, ālamba = support, sarvāṅga = all limb, āsana = posture",
+    "sanskrit_name": "S\u0101lamba Sarv\u0101\u1e45g\u0101sana",
+    "translation_name": "sa = with, \u0101lamba = support, sarv\u0101\u1e45ga = all limb, \u0101sana = posture",
     "pose_description": "Lie on back. Exhale, lift legs and hips up, support back with hands. Straighten legs, gaze inward, breathe.",
     "pose_benefits": "Calms the brain and helps relieve stress and mild depression. Stimulates the thyroid and prostate glands and abdominal organs. Stretches the shoulders and neck. Tones the legs and buttocks. Improves digestion. Helps relieve the symptoms of menopause. Reduces fatigue and alleviates insomnia. Therapeutic for asthma, infertility, and sinusitis.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 30,
+    "has_two_sides": false
   },
   {
     "id": 34,
     "english_name": "Side Plank",
     "sanskrit_name_adapted": "Vasisthasana",
-    "sanskrit_name": "Vasiṣṭhāsana",
-    "translation_name": "vasiṣṭha = name of a sage, āsana = posture",
+    "sanskrit_name": "Vasi\u1e63\u1e6dh\u0101sana",
+    "translation_name": "vasi\u1e63\u1e6dha = name of a sage, \u0101sana = posture",
     "pose_description": "From Plank, roll onto outer right foot. Stack feet, lift left arm up. Engage core, gaze up, breathe.",
     "pose_benefits": "Calms the brain and helps relieve stress and mild depression. Stretches the shoulders, hamstrings, calves, and arches. Strengthens the arms and legs. Helps relieve the symptoms of menopause. Helps prevent osteoporosis. Improves digestion. Relieves headache, insomnia, back pain, and fatigue. Therapeutic for high blood pressure, asthma, flat feet, sciatica.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 40,
     "english_name": "Side Splits",
     "sanskrit_name_adapted": "Upavistha Konasana",
-    "sanskrit_name": "Upaviṣṭha Koṇāsana",
-    "translation_name": "upaviṣṭha = seated, koṇa = angle, āsana = posture",
+    "sanskrit_name": "Upavi\u1e63\u1e6dha Ko\u1e47\u0101sana",
+    "translation_name": "upavi\u1e63\u1e6dha = seated, ko\u1e47a = angle, \u0101sana = posture",
     "pose_description": "Sit, legs wide. Exhale, walk hands forward, lower torso. Keep spine long, gaze down, breathe.",
     "pose_benefits": "Stretches the insides and backs of the legs. Stimulates the abdominal organs. Strengthens the spine. Calms the brain. Releases groin.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 30,
+    "has_two_sides": false
   },
   {
     "id": 35,
     "english_name": "Sphinx",
     "sanskrit_name_adapted": "Salamba Bhujangasana",
-    "sanskrit_name": "Sālamba Bhujaṅgāsana",
-    "translation_name": "sālamba = supported, bhujaṅga = serpent, āsana = posture",
+    "sanskrit_name": "S\u0101lamba Bhuja\u1e45g\u0101sana",
+    "translation_name": "s\u0101lamba = supported, bhuja\u1e45ga = serpent, \u0101sana = posture",
     "pose_description": "Lie on stomach, forearms on mat, elbows under shoulders. Inhale, lift chest, press shoulders down. Gaze forward, breathe.",
     "pose_benefits": "Strengthens the spine. Stretches the chest, the lungs, the shoulders and the abdomen. Stimulates the abdominal organs. Opens the heart and the lungs.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 36,
     "english_name": "Splits",
     "sanskrit_name_adapted": "Hanumanasana",
-    "sanskrit_name": "Hanumānāsana",
-    "translation_name": "hanumān = monkey deity, āsana = posture",
+    "sanskrit_name": "Hanum\u0101n\u0101sana",
+    "translation_name": "hanum\u0101n = monkey deity, \u0101sana = posture",
     "pose_description": "From Lunge, slide front foot forward, back foot back. Lower hips, keep squared. Hands on floor or blocks. Gaze forward, breathe.",
     "pose_benefits": "Stretches the thighs, hamstrings, and groin. Stimulates the abdominal organs.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 60,
+    "has_two_sides": true
   },
   {
     "id": 38,
     "english_name": "Standing Forward Bend",
     "sanskrit_name_adapted": "Uttanasana",
-    "sanskrit_name": "Uttānāsana",
-    "translation_name": "uttāna = stretch out, āsana = posture",
+    "sanskrit_name": "Utt\u0101n\u0101sana",
+    "translation_name": "utt\u0101na = stretch out, \u0101sana = posture",
     "pose_description": "Stand, fold forward, hands to floor or shins. Keep spine long, head heavy. Gaze down, breathe.",
     "pose_benefits": "Calms the brain and helps relieve stress and mild depression. Stimulates the liver and kidneys. Stretches the hamstrings, calves, and hips. Strengthens the thighs and knees. Improves digestion. Helps relieve the symptoms of menopause. Reduces fatigue and anxiety. Relieves headache and insomnia.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 41,
     "english_name": "Tree",
     "sanskrit_name_adapted": "Vrksasana",
-    "sanskrit_name": "Vṛkṣāsana",
-    "translation_name": "vṛkṣa = tree, āsana = posture",
+    "sanskrit_name": "V\u1e5bk\u1e63\u0101sana",
+    "translation_name": "v\u1e5bk\u1e63a = tree, \u0101sana = posture",
     "pose_description": "Stand, place right foot on left thigh or calf. Palms together overhead or at chest. Balance, gaze forward, breathe.",
     "pose_benefits": "Strengthens the legs, ankles, and feet. Improves flexibility in the hips and knees. Improves balance.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 120,
+    "has_two_sides": true
   },
   {
     "id": 42,
     "english_name": "Triangle",
     "sanskrit_name_adapted": "Trikonasana",
-    "sanskrit_name": "Trikoṇāsana",
-    "translation_name": "trikoṇa = triangle, āsana = posture",
+    "sanskrit_name": "Triko\u1e47\u0101sana",
+    "translation_name": "triko\u1e47a = triangle, \u0101sana = posture",
     "pose_description": "Stand wide, turn right foot out. Reach right hand down to shin or floor, left arm up. Open chest, gaze up, breathe.",
     "pose_benefits": "Stretches and strengthens the thighs, knees, and ankles. Stretches the hips, groin, hamstrings, calves, shoulders, chest, and spine. Stimulates the abdominal organs. Helps relieve stress. Improves digestion. Helps relieve the symptoms of menopause. Relieves backache, especially through second trimester of pregnancy. Therapeutic for anxiety, flat feet, infertility, neck pain, osteoporosis, and sciatica.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 120,
+    "has_two_sides": true
   },
   {
     "id": 43,
     "english_name": "Upward-Facing Dog",
     "sanskrit_name_adapted": "Urdhva Mukha Svsnssana",
-    "sanskrit_name": "Ūrdhva Mukha Śvānāsana",
-    "translation_name": "ūrdhva = upward, mukha = facing, śvāna = dog, āsana = posture",
+    "sanskrit_name": "\u016ardhva Mukha \u015av\u0101n\u0101sana",
+    "translation_name": "\u016brdhva = upward, mukha = facing, \u015bv\u0101na = dog, \u0101sana = posture",
     "pose_description": "Lie on stomach, hands by shoulders. Inhale, lift chest and thighs, roll shoulders back. Gaze forward, breathe.",
     "pose_benefits": "Improves posture. Strengthens the spine, arms, and wrists. Stretches the chest, lungs, shoulders, and abdomen. Firms the buttocks. Stimulates abdominal organs. Helps relieve mild depression, fatigue, and sciatica. Therapeutic for asthma.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 60,
+    "has_two_sides": false
   },
   {
     "id": 44,
     "english_name": "Warrior One",
     "sanskrit_name_adapted": "Virabhadrasana One",
-    "sanskrit_name": "Vīrabhadrāsana I",
-    "translation_name": "vīrabhadra = warrior, āsana = posture",
+    "sanskrit_name": "V\u012brabhadr\u0101sana I",
+    "translation_name": "v\u012brabhadra = warrior, \u0101sana = posture",
     "pose_description": "Step left foot back, bend right knee to 90 degrees. Lift arms overhead, sink hips. Gaze forward, breathe.",
     "pose_benefits": "Stretches the chest, lungs, shoulders, neck, belly and groin (psoas). Strengthens the shoulders, arms and back muscles. Strengthens and stretches the thighs, calves and ankles.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 120,
+    "has_two_sides": true
   },
   {
     "id": 46,
     "english_name": "Warrior Three",
     "sanskrit_name_adapted": "Virabhadrasana Three",
-    "sanskrit_name": "Vīrabhadrāsana III",
-    "translation_name": "vīrabhadra = warrior, āsana = posture",
+    "sanskrit_name": "V\u012brabhadr\u0101sana III",
+    "translation_name": "v\u012brabhadra = warrior, \u0101sana = posture",
     "pose_description": "Stand, shift to right leg. Lift left leg back parallel, arms forward or sides. Balance, gaze down, breathe.",
     "pose_benefits": "Strengthens the ankles and legs. Strengthens the shoulders and muscles of the back. Tones the abdomen. Improves balance and posture.",
     "difficulty": "Intermediate",
-    "base_time": 45
+    "base_time": 90,
+    "has_two_sides": true
   },
   {
     "id": 45,
     "english_name": "Warrior Two",
     "sanskrit_name_adapted": "Virabhadrasana Two",
-    "sanskrit_name": "Vīrabhadrāsana II",
-    "translation_name": "vīrabhadra = warrior, āsana = posture",
+    "sanskrit_name": "V\u012brabhadr\u0101sana II",
+    "translation_name": "v\u012brabhadra = warrior, \u0101sana = posture",
     "pose_description": "Step left foot back, bend right knee to 90 degrees. Arms parallel, sink hips. Gaze over right hand, breathe.",
     "pose_benefits": "Strengthens and stretches the legs and ankles. Stretches the groin, chest, lungs, and shoulders. Stimulates abdominal organs. Increases stamina. Relieves backaches, especially through second trimester of pregnancy. Therapeutic for carpal tunnel syndrome, flat feet, infertility, osteoporosis, and sciatica.",
     "difficulty": "Beginner",
-    "base_time": 60
+    "base_time": 120,
+    "has_two_sides": true
   },
   {
     "id": 47,
     "english_name": "Wheel",
     "sanskrit_name_adapted": "Urdhva Dhanurasana",
-    "sanskrit_name": "Ūrdhva Dhanurāsana",
-    "translation_name": "ūrdhva = upward, dhanu = bow, āsana = posture",
+    "sanskrit_name": "\u016ardhva Dhanur\u0101sana",
+    "translation_name": "\u016brdhva = upward, dhanu = bow, \u0101sana = posture",
     "pose_description": "Lie on your back with knees bent and hands placed by your ears. Exhale, then lift your hips and chest to form an arch. Gaze upward and breathe steadily.",
     "pose_benefits": "Strengthens the arms, wrists, legs, buttocks, abs, and spine. Stimulates the thyroid and pituitary glands. Boosts energy, helps counteract depression, and offers therapeutic benefits for asthma, back pain, infertility, and osteoporosis.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 30,
+    "has_two_sides": false
   },
   {
     "id": 48,
     "english_name": "Wild Thing",
     "sanskrit_name_adapted": "Camatkarasana",
-    "sanskrit_name": "Camatkārāsana",
-    "translation_name": "camatkāra = struck with wonder, āsana = posture",
+    "sanskrit_name": "Camatk\u0101r\u0101sana",
+    "translation_name": "camatk\u0101ra = struck with wonder, \u0101sana = posture",
     "pose_description": "Start in Downward Dog, then lift your right leg and open your hips. Place your right hand beside your front foot, lift your left arm, arch your back, gaze upward, and breathe deeply.",
     "pose_benefits": "Stretches the chest, shoulders, back, and throat. Strengthens and opens the hips, hip flexors, and thighs.",
     "difficulty": "Advanced",
-    "base_time": 30
+    "base_time": 60,
+    "has_two_sides": true
   }
 ]

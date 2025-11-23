@@ -14,6 +14,7 @@ let appState = {
   streak: 0,
   lastCompletedDate: null,
   totalPoses: 0,
+  sideSwitched: false,
 };
 
 const poseDurations = {
@@ -255,10 +256,15 @@ function startPoseTimer(poses) {
     return;
   }
   const currentPose = poses[appState.currentPoseIndex];
-  document.getElementById('current-pose-img').src = currentPose.url_svg;
-  document.getElementById('current-pose-img').style.display = 'inline-block';
+  const imgElement = document.getElementById('current-pose-img');
+  imgElement.src = currentPose.url_svg;
+  imgElement.style.display = 'inline-block';
+  imgElement.style.transition = 'none';
+  imgElement.classList.remove('mirrored');
+  imgElement.style.transition = 'transform 0.5s ease';
   document.getElementById('current-pose-name').textContent = currentPose.english_name;
   document.getElementById('current-pose-name').classList.remove('celebration');
+  appState.sideSwitched = false;
   const miniPoses = document.querySelectorAll('.mini-pose');
   miniPoses.forEach((pose, index) => {
     if (index === appState.currentPoseIndex) {
@@ -281,6 +287,12 @@ function startPoseTimer(poses) {
     updateTimerDisplay();
     const currentProgressPercent = (appState.currentPoseIndex + (initialTime - appState.timeRemaining) / initialTime) / poses.length * 100;
     document.getElementById('progress-bar').style.width = `${currentProgressPercent}%`;
+    if (currentPose.has_two_sides && !appState.sideSwitched && appState.timeRemaining <= initialTime / 2) {
+      appState.sideSwitched = true;
+      const switchAudio = new Audio('data/audio/switch_side.mp3');
+      switchAudio.play();
+      document.getElementById('current-pose-img').classList.add('mirrored');
+    }
     if (appState.timeRemaining <= 0) {
       clearInterval(appState.timerInterval);
       appState.currentPoseIndex++;
@@ -317,6 +329,8 @@ function finishExercise() {
   document.getElementById('current-pose-img').style.display = 'none';
   document.getElementById('current-pose-name').textContent = '🎉 Great job! Exercise Completed! 🎉';
   document.getElementById('current-pose-name').classList.add('celebration');
+  const congratsAudio = new Audio('data/audio/congratulations.mp3');
+  congratsAudio.play();
   document.getElementById('timer').textContent = '00:00';
   document.getElementById('timer-label').textContent = 'Completed';
   document.getElementById('progress-bar').style.width = '100%';

@@ -234,6 +234,11 @@ h1 {
     height: auto;
     border-radius: 12px;
     margin-bottom: 16px;
+    transition: transform 0.5s ease;
+}
+
+.mirrored {
+    transform: scaleX(-1);
 }
 
 .control-buttons {
