@@ -162,9 +162,11 @@ h1 {
 
 .section-title {
     text-align: left;
-    margin: 20px 16px 8px;
+    margin: 20px auto 8px;
+    padding-left: 16px;
     color: #2d3748;
     font-size: 1.8em;
+    max-width: 1200px;
 }
 
 #exercise-container {
