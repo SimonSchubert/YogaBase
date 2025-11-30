@@ -63,18 +63,28 @@
                     <path d="M12 19l-7-7 7-7"></path>
                 </svg>
             </button>
-            <button id="voice-toggle-btn" class="voice-toggle-btn" aria-label="Toggle voice guidance" aria-pressed="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-on">
-                    <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-off" style="display: none;">
-                    <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                    <line x1="23" y1="9" x2="17" y2="15"></line>
-                    <line x1="17" y1="9" x2="23" y2="15"></line>
-                </svg>
-            </button>
+            <div class="session-controls">
+                <button id="voice-toggle-btn" class="voice-toggle-btn" aria-label="Toggle voice guidance" aria-pressed="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-on">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sound-off" style="display: none;">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                        <line x1="23" y1="9" x2="17" y2="15"></line>
+                        <line x1="17" y1="9" x2="23" y2="15"></line>
+                    </svg>
+                </button>
+                <button id="fullscreen-btn" class="fullscreen-btn" aria-label="Toggle fullscreen">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M15 3h6v6"></path>
+                        <path d="M9 21H3v-6"></path>
+                        <path d="M21 3l-7 7"></path>
+                        <path d="M3 21l7-7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
         
         <div class="session-content">

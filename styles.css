@@ -358,6 +358,39 @@ h1 {
     stroke: #38a169;
 }
 
+.fullscreen-btn {
+    background: none;
+    border: none;
+    font-size: 1.6em;
+    cursor: pointer;
+    padding: 12px;
+    color: #38a169;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.fullscreen-btn:hover {
+    background-color: rgba(56, 161, 105, 0.1);
+}
+
+.fullscreen-btn:focus {
+    outline: 2px solid #38a169;
+    outline-offset: 2px;
+}
+
+.fullscreen-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.fullscreen-btn:hover svg {
+    transform: scale(1.1);
+}
+
 .difficulty-badge {
     padding: 6px 12px;
     border-radius: 6px;
@@ -402,6 +435,11 @@ h1 {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+}
+
+.session-controls {
+    display: flex;
+    gap: 8px;
 }
 
 .session-back-btn {

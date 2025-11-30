@@ -102,6 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+  const fullscreenButton = document.getElementById('fullscreen-btn');
+  fullscreenButton.addEventListener('click', toggleFullscreen);
   const soundOnIcon = document.querySelector('.voice-toggle-btn .sound-on');
   const soundOffIcon = document.querySelector('.voice-toggle-btn .sound-off');
   if (appState.voiceEnabled) {
@@ -428,6 +430,14 @@ function closeExercise() {
   }
   if (appState.currentAudio) {
     appState.currentAudio.pause();
+  }
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
   }
 }
 
