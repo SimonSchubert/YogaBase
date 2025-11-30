@@ -13,11 +13,10 @@ A web application for exploring and practicing yoga poses with guided sessions.
  - Start guided sessions with customizable difficulty levels
  - Voice guidance with pose descriptions
  - Visual progress tracking during practice
+ - Streak and completion tracking
 
-## Technologies
- - HTML/CSS/JavaScript
- - Web Speech API for voice guidance
- - Responsive design
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Credits
 Uses the Yoga API by Alexis Sri.
