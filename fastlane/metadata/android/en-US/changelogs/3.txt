@@ -1,0 +1,7 @@
+First production release.
+48 yoga poses across 25 guided session categories.
+Per-pose timer with Swift, Balanced, and Endurance difficulty.
+Voice guidance and side-switch audio cues.
+Streak and progress tracking.
+XP and level progression with milestone titles.
+Full-screen workout mode.
