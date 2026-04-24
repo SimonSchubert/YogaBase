@@ -334,7 +334,6 @@ jobs:
   play-store:
     name: Upload AAB to Play Store
     runs-on: ubuntu-latest
-    if: ${{ secrets.PLAY_STORE_KEY_JSON != '' }}
     steps:
       - uses: actions/checkout@v4
 
