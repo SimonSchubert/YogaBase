@@ -1,22 +1,50 @@
 # YogaBase
 
-[![Web](https://raw.githubusercontent.com/SimonSchubert/YogaBase/main/web_badge.png)](https://simonschubert.github.io/YogaBase)
+A Kotlin Multiplatform / Compose Multiplatform yoga practice app. Browse poses, follow guided sessions with voice guidance, and track your streak.
 
-A web application for exploring and practicing yoga poses with guided sessions.
+Runs on Android, iOS, Desktop (macOS/Windows/Linux), and the web (WASM).
 
 ## Screenshots
 
-![Practice Session](screen_1.png) ![Pose Details](screen_2.png) ![Session Library](screen_3.png)
+<p>
+  <img src="media/screen_android_01.png" width="180" alt="Main menu" />
+  <img src="media/screen_android_02.png" width="180" alt="Session intro" />
+  <img src="media/screen_android_03.png" width="180" alt="Holding a pose" />
+  <img src="media/screen_android_04.png" width="180" alt="Side-switched pose" />
+  <img src="media/screen_android_05.png" width="180" alt="Session finished" />
+</p>
 
-## Features
- - Browse yoga poses organized by categories
- - Start guided sessions with customizable difficulty levels
- - Voice guidance with pose descriptions
- - Visual progress tracking during practice
- - Streak and completion tracking
+## Build
+
+```bash
+# Android
+./gradlew :androidApp:installFossDebug
+
+# Desktop (current OS)
+./gradlew :composeApp:run
+
+# Web (WASM)
+./gradlew :composeApp:wasmJsBrowserRun
+
+# iOS
+open iosApp/iosApp.xcodeproj   # then build & run in Xcode
+```
+
+## Regenerating screenshots
+
+Snapshots are produced by Paparazzi in the `:screenshotTests` module.
+
+```bash
+# Record snapshots (phone + tablet, all sizes)
+./gradlew :screenshotTests:recordPaparazziDebug
+
+# Copy the chosen snapshots to media/ for this README
+./gradlew :screenshotTests:updateScreenshots
+
+# Copy Play Store-sized snapshots to fastlane/metadata/android/en-US/images/
+./gradlew :screenshotTests:generateStoreScreenshots
+```
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
-## Credits
-Uses the Yoga API by Alexis Sri.
+MIT — see [LICENSE](LICENSE).

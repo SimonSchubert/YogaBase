@@ -1,0 +1,404 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Decode Keystore
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
+        run: echo "$KEYSTORE_B64" | base64 -d > keystore.jks
+
+      - name: Build APK
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+        run: ./gradlew :androidApp:assembleFossRelease
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename APK
+        run: |
+          mv androidApp/build/outputs/apk/foss/release/androidApp-foss-release.apk \
+             YogaBase-${{ steps.version.outputs.version }}-android.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: YogaBase-${{ steps.version.outputs.version }}-android.apk
+
+  dmg:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build DMG
+        run: ./gradlew :composeApp:packageDmg
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename DMG
+        run: |
+          mv composeApp/build/compose/binaries/main/dmg/*.dmg \
+             YogaBase-${{ steps.version.outputs.version }}-macos.dmg
+
+      - name: Upload DMG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-dmg
+          path: YogaBase-${{ steps.version.outputs.version }}-macos.dmg
+
+  msi:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build MSI
+        run: ./gradlew :composeApp:packageMsi
+
+      - name: Get version from tag
+        id: version
+        shell: bash
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename MSI
+        shell: bash
+        run: |
+          mv composeApp/build/compose/binaries/main/msi/*.msi \
+             YogaBase-${{ steps.version.outputs.version }}-windows.msi
+
+      - name: Upload MSI artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-msi
+          path: YogaBase-${{ steps.version.outputs.version }}-windows.msi
+
+  deb:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build DEB
+        run: ./gradlew :composeApp:packageDeb
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename DEB
+        run: |
+          mv composeApp/build/compose/binaries/main/deb/*.deb \
+             YogaBase-${{ steps.version.outputs.version }}-linux.deb
+
+      - name: Upload DEB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-deb
+          path: YogaBase-${{ steps.version.outputs.version }}-linux.deb
+
+  rpm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Install RPM tools
+        run: sudo apt-get install -y rpm
+
+      - name: Build RPM
+        run: ./gradlew :composeApp:packageRpm
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename RPM
+        run: |
+          mv composeApp/build/compose/binaries/main/rpm/*.rpm \
+             YogaBase-${{ steps.version.outputs.version }}-linux.rpm
+
+      - name: Upload RPM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-rpm
+          path: YogaBase-${{ steps.version.outputs.version }}-linux.rpm
+
+  appimage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Install AppImage tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libfuse2 file
+          wget -q https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+          chmod +x appimagetool-x86_64.AppImage
+
+      - name: Build application distribution
+        run: ./gradlew :composeApp:createDistributable
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create AppDir structure
+        run: |
+          mkdir -p AppDir/usr/bin
+          mkdir -p AppDir/usr/lib
+          mkdir -p AppDir/usr/share/applications
+          mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
+
+          # Copy distributable contents
+          cp -r composeApp/build/compose/binaries/main/app/YogaBase/* AppDir/usr/lib/
+
+          # Create a simple placeholder icon (1x1 transparent PNG)
+          echo 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' | base64 -d > AppDir/usr/share/icons/hicolor/256x256/apps/yogabase.png
+          cp AppDir/usr/share/icons/hicolor/256x256/apps/yogabase.png AppDir/yogabase.png
+
+          # Create desktop file
+          cat > AppDir/yogabase.desktop << 'EOF'
+          [Desktop Entry]
+          Name=YogaBase
+          Comment=Brain Training Application
+          Exec=yogabase
+          Icon=yogabase
+          Type=Application
+          Categories=Game;Education;
+          Terminal=false
+          EOF
+          cp AppDir/yogabase.desktop AppDir/usr/share/applications/
+
+          # Create AppRun
+          cat > AppDir/AppRun << 'EOF'
+          #!/bin/bash
+          SELF=$(readlink -f "$0")
+          HERE=${SELF%/*}
+          export PATH="${HERE}/usr/lib/bin:${PATH}"
+          export LD_LIBRARY_PATH="${HERE}/usr/lib/lib/runtime/lib:${LD_LIBRARY_PATH}"
+          exec "${HERE}/usr/lib/bin/YogaBase" "$@"
+          EOF
+          chmod +x AppDir/AppRun
+
+      - name: Build AppImage
+        run: |
+          ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run AppDir \
+            YogaBase-${{ steps.version.outputs.version }}-linux.AppImage
+
+      - name: Upload AppImage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-appimage
+          path: YogaBase-${{ steps.version.outputs.version }}-linux.AppImage
+
+  linux-tar:
+    name: Generate Linux Tarball
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build application distribution
+        run: ./gradlew :composeApp:createDistributable
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create tarball
+        run: |
+          cd composeApp/build/compose/binaries/main/app
+          tar czf "$GITHUB_WORKSPACE/YogaBase-${{ steps.version.outputs.version }}-linux-x86_64.tar.gz" YogaBase
+
+      - name: Upload Tarball artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-tar
+          path: YogaBase-${{ steps.version.outputs.version }}-linux-x86_64.tar.gz
+
+  flatpak:
+    name: Build Flatpak Bundle
+    needs: [linux-tar]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Download Linux Tarball
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-tar
+
+      - name: Install Flatpak and Builder
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flatpak flatpak-builder
+          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          sudo flatpak install -y flathub org.freedesktop.Platform//24.08 org.freedesktop.Sdk//24.08
+
+      - name: Build Flatpak
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          cp "YogaBase-${VERSION}-linux-x86_64.tar.gz" flatpak/YogaBase-linux-x86_64.tar.gz
+          SHA256=$(sha256sum flatpak/YogaBase-linux-x86_64.tar.gz | cut -d' ' -f1)
+
+          cd flatpak
+          sed -i "s|url: https://github.com/SimonSchubert/YogaBase/releases/download/.*|path: YogaBase-linux-x86_64.tar.gz|" io.github.simonschubert.YogaBase.yaml
+          sed -i "s|sha256: .*|sha256: ${SHA256}|" io.github.simonschubert.YogaBase.yaml
+
+          flatpak-builder --repo=repo --force-clean build-dir io.github.simonschubert.YogaBase.yaml
+          flatpak build-bundle repo "$GITHUB_WORKSPACE/YogaBase-${VERSION}-linux.flatpak" io.github.simonschubert.YogaBase
+
+      - name: Upload Flatpak artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-flatpak
+          path: YogaBase-${{ steps.version.outputs.version }}-linux.flatpak
+
+  play-store:
+    name: Upload AAB to Play Store
+    runs-on: ubuntu-latest
+    if: ${{ secrets.PLAY_STORE_KEY_JSON != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Decode Play Store keystore
+        run: echo "${{ secrets.PLAY_STORE_KEYSTORE_B64 }}" | base64 --decode > /tmp/keystore.jks
+
+      - name: Decode Play Store service account key
+        run: echo "${{ secrets.PLAY_STORE_KEY_JSON }}" | base64 --decode > fastlane/play-store-key.json
+
+      - name: Build signed AAB
+        run: ./gradlew :androidApp:bundlePlayStoreRelease --stacktrace
+        env:
+          KEYSTORE_FILE: /tmp/keystore.jks
+          KEYSTORE_PASSWORD: ${{ secrets.PLAY_STORE_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.PLAY_STORE_KEY_ALIAS }}
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Deploy to Play Store
+        run: bundle exec fastlane android deploy
+
+  release:
+    needs: [apk, dmg, msi, deb, rpm, appimage, linux-tar, flatpak]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: YogaBase v${{ steps.version.outputs.version }}
+          draft: false
+          prerelease: false
+          files: |
+            artifacts/android-apk/YogaBase-${{ steps.version.outputs.version }}-android.apk
+            artifacts/macos-dmg/YogaBase-${{ steps.version.outputs.version }}-macos.dmg
+            artifacts/windows-msi/YogaBase-${{ steps.version.outputs.version }}-windows.msi
+            artifacts/linux-deb/YogaBase-${{ steps.version.outputs.version }}-linux.deb
+            artifacts/linux-rpm/YogaBase-${{ steps.version.outputs.version }}-linux.rpm
+            artifacts/linux-appimage/YogaBase-${{ steps.version.outputs.version }}-linux.AppImage
+            artifacts/linux-tar/YogaBase-${{ steps.version.outputs.version }}-linux-x86_64.tar.gz
+            artifacts/linux-flatpak/YogaBase-${{ steps.version.outputs.version }}-linux.flatpak

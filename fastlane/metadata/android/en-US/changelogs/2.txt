@@ -1,0 +1,2 @@
+Added XP and level progression with milestone titles (Novice → Master).
+Main menu now shows your current level card with animated XP bar, and the finish screen celebrates level-ups.

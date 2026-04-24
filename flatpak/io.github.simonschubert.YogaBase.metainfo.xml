@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.simonschubert.YogaBase</id>
+
+  <name>YogaBase</name>
+  <summary>Guided yoga sessions with voice, poses, and streak tracking</summary>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+
+  <developer id="io.github.simonschubert">
+    <name>Simon Schubert</name>
+  </developer>
+
+  <description>
+    <p>
+      YogaBase is an offline yoga companion with voice-guided sessions, illustrated
+      poses, and a daily streak to keep you moving. Pick a session category,
+      choose your pace, and let the app take you through each pose.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>25 guided session categories across beginner, intermediate, and advanced</li>
+      <li>48 illustrated yoga poses with English, Sanskrit, and translated names</li>
+      <li>Voice narration for every pose plus an intro countdown and mid-pose side switch</li>
+      <li>Three pacing modes: Swift, Balanced, and Endurance</li>
+      <li>Daily streak tracking that persists across sessions</li>
+      <li>Works fully offline — no account required</li>
+      <li>Available on Android, iOS, Desktop, and Web</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">io.github.simonschubert.YogaBase.desktop</launchable>
+
+  <url type="homepage">https://github.com/SimonSchubert/YogaBase</url>
+  <url type="bugtracker">https://github.com/SimonSchubert/YogaBase/issues</url>
+  <url type="vcs-browser">https://github.com/SimonSchubert/YogaBase</url>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#c6f6d5</color>
+    <color type="primary" scheme_preference="dark">#1c4532</color>
+  </branding>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Home screen</caption>
+      <image>https://raw.githubusercontent.com/SimonSchubert/YogaBase/main/media/screen_mac_01.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Practice session</caption>
+      <image>https://raw.githubusercontent.com/SimonSchubert/YogaBase/main/media/screen_mac_02.png</image>
+    </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.1" />
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+
+  <releases>
+    <release version="0.1.0" date="2026-04-24">
+      <url type="details">https://github.com/SimonSchubert/YogaBase/releases/tag/v0.1.0</url>
+    </release>
+  </releases>
+</component>

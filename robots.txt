@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://simonschubert.github.io/YogaBase/sitemap.xml

@@ -1,0 +1,27 @@
+default_platform(:android)
+
+platform :android do
+  desc "Upload localized metadata, icon, feature graphic, and screenshots to Play Store"
+  lane :upload_screenshots do
+    upload_to_play_store(
+      track: 'internal',
+      skip_upload_apk: true,
+      skip_upload_aab: true,
+      skip_upload_changelogs: true,
+      skip_upload_images: false,
+      skip_upload_screenshots: false,
+      skip_upload_metadata: false,
+    )
+  end
+
+  desc "Deploy AAB to Play Store production"
+  lane :deploy do
+    upload_to_play_store(
+      track: 'production',
+      aab: 'androidApp/build/outputs/bundle/playStoreRelease/androidApp-playStore-release.aab',
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+end

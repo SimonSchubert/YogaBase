@@ -1,0 +1,10 @@
+YogaBase is an offline yoga companion with voice-guided sessions, illustrated poses, and a daily streak to keep you moving. Pick a session category, choose your pace, and let the app take you through each pose.
+
+Features:
+- 25 guided session categories across beginner, intermediate, and advanced
+- 48 illustrated yoga poses with English, Sanskrit, and translated names
+- Voice narration for every pose plus an intro countdown and mid-pose side switch
+- Three pacing modes: Swift, Balanced, and Endurance
+- Daily streak tracking that persists across sessions
+- Works fully offline — no account required
+- Available on Android, iOS, Desktop, and Web

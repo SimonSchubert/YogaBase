@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YogaBase</string>
+
+    <string name="section_sessions">Yoga Sessions</string>
+    <string name="section_all_poses">All Poses</string>
+
+    <string name="streak_header">Your current streak</string>
+    <plurals name="streak_days">
+        <item quantity="one">%1$d day</item>
+        <item quantity="other">%1$d days</item>
+    </plurals>
+
+    <string name="difficulty_swift">Swift</string>
+    <string name="difficulty_balanced">Balanced</string>
+    <string name="difficulty_endurance">Endurance</string>
+
+    <string name="difficulty_beginner">Beginner</string>
+    <string name="difficulty_intermediate">Intermediate</string>
+    <string name="difficulty_advanced">Advanced</string>
+
+    <string name="start_session">Start Exercise</string>
+    <string name="restart_session">Restart Exercise</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="skip_intro">Skip Intro</string>
+    <string name="voice_on">Voice on</string>
+    <string name="voice_off">Voice off</string>
+    <string name="fullscreen">Toggle fullscreen</string>
+    <string name="back">Back</string>
+
+    <string name="get_ready">Get ready for your session!</string>
+    <string name="timer_get_ready">Get ready…</string>
+    <string name="timer_hold">Hold pose</string>
+    <string name="timer_next_soon">Get ready for next pose…</string>
+    <string name="timer_completed">Completed</string>
+
+    <string name="great_job">Great job! Exercise completed!</string>
+    <string name="back_to_menu">Back to menu</string>
+    <string name="completed">Completed</string>
+
+    <plurals name="pose_count">
+        <item quantity="one">%1$d pose</item>
+        <item quantity="other">%1$d poses</item>
+    </plurals>
+    <string name="total_duration">%1$dm %2$ds total</string>
+    <string name="benefits">Benefits</string>
+
+    <string name="quit_session_title">Quit session?</string>
+    <string name="quit_session_message">Your progress will be lost.</string>
+    <string name="quit">Quit</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="level_label">Level %1$d</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="level_up_title">Level up!</string>
+
+    <string name="title_novice">Novice</string>
+    <string name="title_practitioner">Practitioner</string>
+    <string name="title_adept">Adept</string>
+    <string name="title_devotee">Devotee</string>
+    <string name="title_teacher">Teacher</string>
+    <string name="title_master">Master</string>
+</resources>

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=YogaBase
+Comment=Guided yoga sessions with voice, poses, and streak tracking
+Exec=yogabase-wrapper
+Icon=io.github.simonschubert.YogaBase
+Type=Application
+Categories=HealthAndFitness;Sports;
+Keywords=Yoga;Fitness;Meditation;Stretching;Exercise;Health;
+StartupWMClass=compose-window
+Terminal=false
