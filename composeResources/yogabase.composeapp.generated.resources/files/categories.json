@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "category_name": "Gentle Beginner Flow",
+    "category_description": "A soothing sequence for beginners to ease into yoga with foundational poses and breath focus.",
+    "poses": [4, 7, 10, 11, 35],
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 2,
+    "category_name": "Morning Wake-Up",
+    "category_description": "A beginner-friendly sequence to energize and stretch the body for the day ahead.",
+    "poses": [5, 12, 15, 38, 41, 43, 45],
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 3,
+    "category_name": "Restful Basics",
+    "category_description": "A calming beginner sequence to relax and restore with gentle poses.",
+    "poses": [10, 11, 24],
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 26,
+    "category_name": "Beginner's Blissful Flow",
+    "category_description": "A comprehensive beginner sequence that flows harmoniously through warm-up, standing strength and balance poses, gentle backbends, forward folds, hip openers, and restorative poses to build a well-rounded foundation.",
+    "poses": [11, 7, 8, 15, 26, 43, 23, 12, 44, 45, 42, 9, 41, 43, 4, 35, 5, 10, 11],
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 4,
+    "category_name": "Balanced Foundations",
+    "category_description": "A beginner sequence to build balance and strength with standing and seated poses.",
+    "poses": [9, 12, 26, 41, 42, 44, 45, 7, 8],
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 5,
+    "category_name": "Core and Stretch",
+    "category_description": "A beginner sequence to strengthen the core and improve flexibility with simple poses.",
+    "poses": [4, 7, 8, 26, 35, 43],
+    "difficulty": "Beginner"
+  },
+  {
+    "id": 6,
+    "category_name": "Intermediate Core Strength",
+    "category_description": "A dynamic intermediate sequence to build core stability and strength.",
+    "poses": [1, 2, 14, 34, 46],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 7,
+    "category_name": "Hip Opening Flow",
+    "category_description": "An intermediate sequence to deeply stretch and open the hips for greater flexibility.",
+    "poses": [5, 17, 24, 31, 37, 20, 28, 30, 32],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 8,
+    "category_name": "Twist and Energize",
+    "category_description": "An intermediate twisting sequence to detoxify and boost energy levels.",
+    "poses": [6, 14, 18, 29, 32],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 9,
+    "category_name": "Balance Challenge",
+    "category_description": "An intermediate sequence to enhance balance and coordination with standing poses.",
+    "poses": [16, 17, 21, 28, 46, 34, 1],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 10,
+    "category_name": "Vigorous Flow",
+    "category_description": "A high-energy intermediate flow to build endurance and strength through dynamic transitions.",
+    "poses": [14, 18, 20, 29, 30, 34, 46, 6, 16, 21],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 11,
+    "category_name": "Heart Opening Sequence",
+    "category_description": "An intermediate sequence to open the chest and strengthen the back with backbends.",
+    "poses": [6, 14, 18, 20, 29],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 12,
+    "category_name": "Core and Stability",
+    "category_description": "An intermediate sequence blending core work and balancing poses for overall stability.",
+    "poses": [1, 2, 16, 21, 34, 46, 17, 28],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 13,
+    "category_name": "Seated Flexibility",
+    "category_description": "An intermediate sequence of seated poses to deepen hip and hamstring flexibility.",
+    "poses": [5, 24, 30, 31, 32, 37],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 14,
+    "category_name": "Warrior Power",
+    "category_description": "An intermediate sequence focusing on warrior poses to build strength and confidence.",
+    "poses": [18, 29, 46, 21, 16, 34],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 15,
+    "category_name": "Energy and Balance",
+    "category_description": "An energizing intermediate sequence to boost vitality and improve balance.",
+    "poses": [6, 16, 17, 21, 28, 29, 34, 46, 1, 14],
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": 16,
+    "category_name": "Advanced Core Intensive",
+    "category_description": "An advanced sequence to intensely target core strength with challenging poses.",
+    "poses": [1, 13, 19, 22, 33],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 17,
+    "category_name": "Inversion Exploration",
+    "category_description": "An advanced sequence to master inversions, building strength and control.",
+    "poses": [13, 19, 22, 27, 33, 47, 48],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 18,
+    "category_name": "Flexibility Extreme",
+    "category_description": "An advanced sequence to push flexibility boundaries with deep stretches and splits.",
+    "poses": [25, 36, 40, 27, 33, 24, 31],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 19,
+    "category_name": "Arm Balance Mastery",
+    "category_description": "An advanced sequence focusing on arm balances to strengthen the upper body.",
+    "poses": [13, 19, 22, 34, 47, 48],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 20,
+    "category_name": "Deep Backbends",
+    "category_description": "An advanced sequence to deepen backbends, opening the chest and spine.",
+    "poses": [6, 25, 47, 48, 27, 33, 19, 13, 22],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 21,
+    "category_name": "Ultimate Flow",
+    "category_description": "A comprehensive advanced flow combining strength, balance, and flexibility.",
+    "poses": [13, 19, 22, 25, 36, 40, 47, 48, 27, 33],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 22,
+    "category_name": "Precision and Power",
+    "category_description": "An advanced sequence emphasizing precise alignment and powerful poses.",
+    "poses": [13, 19, 22, 27, 33, 36],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 23,
+    "category_name": "Hip and Heart Intensive",
+    "category_description": "An advanced sequence to deeply open hips and heart for flexibility and emotional release.",
+    "poses": [25, 36, 40, 47, 48, 24],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 24,
+    "category_name": "Strength and Control",
+    "category_description": "An advanced sequence to build strength and control with challenging poses.",
+    "poses": [13, 19, 22, 34, 46, 47, 48, 1, 27],
+    "difficulty": "Advanced"
+  },
+  {
+    "id": 25,
+    "category_name": "Yoga Mastery",
+    "category_description": "An advanced sequence to challenge strength, balance, and flexibility for seasoned practitioners.",
+    "poses": [13, 19, 22, 25, 27, 33, 36, 47, 48],
+    "difficulty": "Advanced"
+  }
+]
