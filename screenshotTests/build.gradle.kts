@@ -23,21 +23,35 @@ android {
                 .toInt()
     }
 
-    sourceSets["main"].assets.srcDirs(
-        "${project(":composeApp").projectDir}/build/generated/compose/resourceGenerator/preparedResources/commonMain",
-    )
+    sourceSets {
+        getByName("main") {
+            assets.srcDirs(
+                "${project(":composeApp").projectDir}/build/generated/compose/resourceGenerator/preparedResources/commonMain",
+            )
+        }
+    }
 }
 
 val preparePaparazzi by tasks.registering {
     dependsOn(":composeApp:prepareComposeResourcesTaskForCommonMain")
+    dependsOn(":composeApp:copyNonXmlValueResourcesForCommonMain")
+    dependsOn(":composeApp:convertXmlValueResourcesForCommonMain")
 }
 
-tasks.matching { it.name.startsWith("testDebug") }.configureEach {
-    dependsOn(preparePaparazzi)
-}
+tasks
+    .matching {
+        it.name.startsWith("testDebug") ||
+            (it.name.startsWith("merge") && it.name.endsWith("Assets"))
+    }.configureEach {
+        dependsOn(preparePaparazzi)
+    }
 
 tasks.withType<Test>().configureEach {
     reports.html.required.set(false)
+    // Recycle the JVM periodically so Paparazzi's native ImageReader buffers don't
+    // exhaust when running the full Store/Tablet locale matrix in one fork.
+    forkEvery = 50
+    maxHeapSize = "4g"
 }
 
 val snapshotsDir = layout.projectDirectory.dir("src/test/snapshots/images")
