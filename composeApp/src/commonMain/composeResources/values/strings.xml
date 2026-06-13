@@ -2,6 +2,25 @@
 <resources>
     <string name="app_name">YogaBase</string>
 
+    <string name="section_breathing">Breathing</string>
+    <string name="breathing_entry_title">Breathing Techniques</string>
+    <string name="breathing_entry_subtitle">Science-backed exercises to calm your mind</string>
+    <string name="breathing_menu_title">Breathing</string>
+    <string name="breathing_menu_subtitle">Choose a technique. Follow the circle — breathe in as it grows, out as it shrinks.</string>
+    <string name="breathing_duration_minutes">%1$d min</string>
+    <string name="breathing_cycles">%1$d cycles</string>
+    <string name="breathing_step_inhale">Inhale</string>
+    <string name="breathing_step_hold">Hold</string>
+    <string name="breathing_step_exhale">Exhale</string>
+    <string name="breathing_step_hold_out">Hold</string>
+    <string name="breathing_step_top_off">Top off</string>
+    <string name="breathing_cycle_progress">Cycle %1$d of %2$d</string>
+    <string name="breathing_complete">Complete</string>
+    <string name="breathing_complete_message">Well done. Take a moment to notice how you feel.</string>
+    <string name="breathing_done">Done</string>
+    <string name="quit_breathing_title">End session?</string>
+    <string name="quit_breathing_message">Your progress in this breathing exercise will be lost.</string>
+
     <string name="section_sessions">Yoga Sessions</string>
     <string name="section_all_poses">All Poses</string>
 

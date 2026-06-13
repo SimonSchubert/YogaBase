@@ -25,9 +25,11 @@ import com.inspiredandroid.yogabase.ui.components.CategoryCard
 import com.inspiredandroid.yogabase.ui.components.PlayerLevelCard
 import com.inspiredandroid.yogabase.ui.components.PoseCard
 import com.inspiredandroid.yogabase.ui.components.StreakHeader
+import com.inspiredandroid.yogabase.ui.components.breathing.BreathingEntryCard
 import org.jetbrains.compose.resources.stringResource
 import yogabase.composeapp.generated.resources.Res
 import yogabase.composeapp.generated.resources.section_all_poses
+import yogabase.composeapp.generated.resources.section_breathing
 import yogabase.composeapp.generated.resources.section_sessions
 
 @Composable
@@ -38,6 +40,7 @@ fun MainMenuScreen(
     poses: List<Pose>,
     completedCategoryIds: Set<Int>,
     onCategoryClick: (SessionCategory) -> Unit,
+    onBreathingClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val posesById = poses.associateBy { it.id }
@@ -61,6 +64,18 @@ fun MainMenuScreen(
             item(span = { GridItemSpan(maxLineSpan) }) {
                 PlayerLevelCard(totalXp = totalXp)
             }
+        }
+
+        item(span = { GridItemSpan(maxLineSpan) }) {
+            Text(
+                text = stringResource(Res.string.section_breathing),
+                style = MaterialTheme.typography.headlineSmall,
+                modifier = Modifier.padding(top = 8.dp),
+            )
+        }
+
+        item(span = { GridItemSpan(maxLineSpan) }) {
+            BreathingEntryCard(onClick = onBreathingClick)
         }
 
         item(span = { GridItemSpan(maxLineSpan) }) {

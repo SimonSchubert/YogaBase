@@ -96,6 +96,7 @@ class StoreScreenshotTest(
                 poses = samplePoses,
                 completedCategoryIds = setOf(1),
                 onCategoryClick = {},
+                onBreathingClick = {},
             )
         }
     }

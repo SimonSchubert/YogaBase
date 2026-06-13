@@ -61,6 +61,7 @@ class ScreenshotTest {
                 poses = samplePoses,
                 completedCategoryIds = setOf(1),
                 onCategoryClick = {},
+                onBreathingClick = {},
             )
         }
     }

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "box",
+    "name": "Box Breathing",
+    "description": "Equal counts for inhale, hold, exhale, and hold. Used by Navy SEALs to stay calm under pressure.",
+    "benefit": "Reduces stress and sharpens focus",
+    "inhale_seconds": 4,
+    "hold_in_seconds": 4,
+    "exhale_seconds": 4,
+    "hold_out_seconds": 4,
+    "cycles": 4
+  },
+  {
+    "id": "four_seven_eight",
+    "name": "4-7-8 Breath",
+    "description": "Inhale for 4, hold for 7, exhale for 8. Developed by Dr. Andrew Weil to activate the relaxation response.",
+    "benefit": "Eases anxiety and helps you fall asleep",
+    "inhale_seconds": 4,
+    "hold_in_seconds": 7,
+    "exhale_seconds": 8,
+    "hold_out_seconds": 0,
+    "cycles": 4
+  },
+  {
+    "id": "physiological_sigh",
+    "name": "Physiological Sigh",
+    "description": "A deep inhale, a short top-off inhale, then a long exhale. The fastest evidence-backed way to lower stress.",
+    "benefit": "Rapidly calms the nervous system",
+    "inhale_seconds": 2,
+    "hold_in_seconds": 1,
+    "exhale_seconds": 6,
+    "hold_out_seconds": 0,
+    "cycles": 5
+  },
+  {
+    "id": "coherent",
+    "name": "Coherent Breathing",
+    "description": "Slow, even breaths at about 5 seconds each. Optimizes heart rate variability and emotional balance.",
+    "benefit": "Balances heart and mind",
+    "inhale_seconds": 5,
+    "hold_in_seconds": 0,
+    "exhale_seconds": 5,
+    "hold_out_seconds": 0,
+    "cycles": 6
+  },
+  {
+    "id": "extended_exhale",
+    "name": "Extended Exhale",
+    "description": "A longer exhale than inhale activates the parasympathetic nervous system — your body's rest-and-digest mode.",
+    "benefit": "Deep relaxation and tension release",
+    "inhale_seconds": 4,
+    "hold_in_seconds": 0,
+    "exhale_seconds": 6,
+    "hold_out_seconds": 0,
+    "cycles": 5
+  }
+]

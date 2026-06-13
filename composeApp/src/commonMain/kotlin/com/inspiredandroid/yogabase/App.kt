@@ -29,14 +29,20 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.inspiredandroid.yogabase.audio.rememberAudioPlayer
+import com.inspiredandroid.yogabase.breathing.BreathingController
+import com.inspiredandroid.yogabase.data.BreathingRepository
 import com.inspiredandroid.yogabase.data.Difficulty
 import com.inspiredandroid.yogabase.data.YogaRepository
 import com.inspiredandroid.yogabase.navigation.AppNavHost
+import com.inspiredandroid.yogabase.navigation.BreathingMenu
+import com.inspiredandroid.yogabase.navigation.BreathingSession
 import com.inspiredandroid.yogabase.navigation.Finish
 import com.inspiredandroid.yogabase.navigation.MainMenu
 import com.inspiredandroid.yogabase.navigation.Practice
 import com.inspiredandroid.yogabase.session.SessionController
 import com.inspiredandroid.yogabase.storage.UserStorage
+import com.inspiredandroid.yogabase.ui.screens.BreathingMenuScreen
+import com.inspiredandroid.yogabase.ui.screens.BreathingSessionScreen
 import com.inspiredandroid.yogabase.ui.screens.FinishScreen
 import com.inspiredandroid.yogabase.ui.screens.MainMenuScreen
 import com.inspiredandroid.yogabase.ui.screens.PracticeScreen
@@ -50,15 +56,20 @@ fun App(colorScheme: ColorScheme? = null) {
         ?: if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme
 
     val repository = remember { YogaRepository() }
+    val breathingRepository = remember { BreathingRepository() }
     val storage = remember { UserStorage() }
     val audioPlayer = rememberAudioPlayer()
     val navController = rememberNavController()
     val controller = remember(navController) {
         SessionController(repository, storage, audioPlayer, navController)
     }
+    val breathingController = remember { BreathingController() }
 
-    DisposableEffect(controller) {
-        onDispose { controller.dispose() }
+    DisposableEffect(controller, breathingController) {
+        onDispose {
+            controller.dispose()
+            breathingController.dispose()
+        }
     }
 
     var loaded by rememberSaveable { mutableStateOf(false) }
@@ -70,6 +81,7 @@ fun App(colorScheme: ColorScheme? = null) {
 
     LaunchedEffect(Unit) {
         repository.loadAll()
+        breathingRepository.loadAll()
         streak = storage.refreshStreakOnLaunch()
         totalXp = storage.getTotalXp()
         completedIds = storage.completedCategoryIds()
@@ -77,12 +89,16 @@ fun App(colorScheme: ColorScheme? = null) {
     }
 
     val lifecycleOwner = LocalLifecycleOwner.current
-    DisposableEffect(lifecycleOwner, controller) {
+    DisposableEffect(lifecycleOwner, controller, breathingController) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
                 Lifecycle.Event.ON_PAUSE -> {
                     val state = controller.state.value
                     if (state != null && !state.paused) controller.togglePause()
+                    val breathingState = breathingController.state.value
+                    if (breathingState != null && !breathingState.paused) {
+                        breathingController.togglePause()
+                    }
                 }
                 else -> {}
             }
@@ -118,6 +134,37 @@ fun App(colorScheme: ColorScheme? = null) {
                             onCategoryClick = { category ->
                                 controller.startSession(category, selectedDifficulty)
                                 navController.navigate(Practice(category.id))
+                            },
+                            onBreathingClick = {
+                                navController.navigate(BreathingMenu)
+                            },
+                        )
+                    }
+
+                    composable<BreathingMenu> {
+                        BreathingMenuScreen(
+                            techniques = breathingRepository.techniques(),
+                            onTechniqueClick = { technique ->
+                                breathingController.start(technique)
+                                navController.navigate(BreathingSession(technique.id))
+                            },
+                            onBack = { navController.popBackStack() },
+                        )
+                    }
+
+                    composable<BreathingSession> { backStackEntry ->
+                        val route: BreathingSession = backStackEntry.toRoute()
+                        val technique = breathingRepository.techniqueById(route.techniqueId)
+                            ?: return@composable
+                        val breathingState by breathingController.state.collectAsState()
+
+                        BreathingSessionScreen(
+                            technique = technique,
+                            state = breathingState,
+                            onTogglePause = { breathingController.togglePause() },
+                            onBack = {
+                                breathingController.cancel()
+                                navController.popBackStack()
                             },
                         )
                     }
