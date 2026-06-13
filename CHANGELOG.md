@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.2.0 — 2026-06-13
+
+### Features
+- Breathing exercises for guided relaxation and focus
+
+### Improvements
+- Updated dependencies
+
 ## v1.1.1 — 2026-04-24
 
 First production release.
