@@ -1,9 +1,12 @@
 package com.inspiredandroid.yogabase.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -17,6 +20,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layout
+import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.yogabase.data.Difficulty
 import com.inspiredandroid.yogabase.data.Pose
@@ -133,5 +138,36 @@ fun MainMenuScreen(
                 }
             }
         }
+
+        // German law requires the legal notice and privacy policy to be reachable from the app.
+        // Both are legal terms rather than UI copy, so they are not translated.
+        item(span = { GridItemSpan(maxLineSpan) }) {
+            val uriHandler = LocalUriHandler.current
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 16.dp),
+                horizontalArrangement = Arrangement.Center,
+            ) {
+                LegalLink("Impressum") { uriHandler.openUri("https://schubert-simon.de/impressum.html") }
+                Text(
+                    text = "  ·  ",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                LegalLink("Datenschutz") { uriHandler.openUri("https://schubert-simon.de/privacy.html") }
+            }
+        }
     }
+}
+
+@Composable
+private fun LegalLink(text: String, onClick: () -> Unit) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        textDecoration = TextDecoration.Underline,
+        modifier = Modifier.clickable(onClick = onClick),
+    )
 }
